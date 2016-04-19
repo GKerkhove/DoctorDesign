@@ -8,7 +8,7 @@ This is the official repo for the Doctor + Design app with integrated gamificati
 - Install node js
 - Install cordova ```npm i -g cordova```
 - Install gulp ```npm i -g gulp```
-- Install dependencies ```cd DoctorDesign```, ```npm i```
+- Install dependencies: open the terminal as administrator, ```cd DoctorDesign```, ```npm i```
 
 ## Run this shit
 - Open the terminal at DoctorDesign and run ```gulp```

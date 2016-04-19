@@ -1,21 +1,13 @@
 {
     "parser": "babel-eslint",
     "rules": {
-        "indent": [
-            1,
-            2
+        "indent": [ 0
         ],
-        "quotes": [
-            1,
-            "single"
+        "quotes": [ 0
         ],
-        "linebreak-style": [
-            1,
-            "unix"
+        "linebreak-style": [ 0
         ],
-        "semi": [
-            1,
-            "always"
+        "semi": [ 0
         ],
         "no-multiple-empty-lines": [
             1,
@@ -24,7 +16,7 @@
             }
         ],
         "no-lonely-if": 1,
-        "no-console": 1,
+        "no-console": 0,
         "no-unused-vars": 1,
         "comma-dangle": 0
     },

@@ -37,23 +37,56 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- Linkdin setup -->
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+      api_key:   77oi4272xb3tii
+      onLoad:    onLinkedInLoad
+      authorize: false
+      lang:      'nl_NL'
+    </script>
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script src="/js/jquery-wysiwyg.js"></script>
 
+    <!-- end linkedin -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <title>Hello Worl11d</title>
 </head>
 
 <body>
     <div class="app">
-        <h1>PhoneGap</h1>
+      <!-- Deze regel genereerd een linkedin login button -->
+      <script type="in/Login"></script>
+        <h1>PhoneGap Wolla</h1>
         <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+            <p class="event listening">Connecting to Device<br/>hoephoei</p>
+            <p class="event received">Device is Read1231y<br>wajjjl</p>
         </div>
+        <img class='picture' src''></img>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
+    </script>
+    <script>
+      function onLinkedInLoad(){
+        $('.event');
+        IN.Event.on(IN, "auth", getProfileData);
+      }
+      function onSuccess(data) {
+        console.log(data);
+        if(data.pictureUrl)
+          $('.picture').attr('src', data.pictureUrl);
+          else {
+            console.warn('No profile pic');
+          }
+      }
+      function onError(error) {
+          console.log(error);
+      }
+      function getProfileData() {
+          IN.API.Raw("/people/~:(id,email-address,first-name,last-name,formatted-name,picture-url)?format=json").result(onSuccess).error(onError);
+      }
     </script>
 </body>
 

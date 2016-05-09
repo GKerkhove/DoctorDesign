@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -18,6 +19,10 @@ public class StartMenu : MonoBehaviour {
         First.onClick.AddListener(FirstClick);
         Second.onClick.AddListener(SecondClick);
         Third.onClick.AddListener(ThirdClick);
+	    DatabaseManager.Get().retrieveAll(data =>
+	    {
+	        print(data[0].FirstName);    
+	    });
 	}
 
     void FirstClick()

@@ -18,27 +18,39 @@ public class DatabaseManager : MonoBehaviour
         return instance;
     }
 
-    
+
 
     public void retrieveAll(System.Action<List<Person>> callback)
     {
-        WWW www = new WWW("http://DocterDesign:UCREATE@jimiverhoeven.nl:8080/users");
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/users?user=DocterDesign");
         List<Person> persons = new List<Person>();
 
-        StartCoroutine(WaitForRequest(www,data => {
+        StartCoroutine(WaitForRequest(www, data =>
+        {
             if (data.error == null)
             {
                 JSONNode n = JSON.Parse(data.text);
-                for (int i = 0; i< n.Count;i++)
+                for (int i = 0; i < n.Count; i++)
                 {
                     persons.Add(Person.GetFromJSON(n[i]));
                 }
                 callback(persons);
-//                return persons;
-//                List<Person> p = JsonUtility.FromJson<List<Person>>(data.text);
             }
-         }));
-        
+        }));
+    }
+
+    public void retrieveByEmail(string email, System.Action<Person> callback)
+    {
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/users/"+email+"?user=DocterDesign");
+
+        StartCoroutine(WaitForRequest(www, data =>
+        {
+            if (data.error == null)
+            {
+                JSONNode n = JSON.Parse(data.text);
+                callback(Person.GetFromJSON(n[0]));
+            }
+        }));
     }
 
 //    IEnumerator Start(string url)

@@ -21,7 +21,8 @@ public class StartMenu : MonoBehaviour {
         Third.onClick.AddListener(ThirdClick);
 	    DatabaseManager.Get().retrieveAll(data =>
 	    {
-	        print(data[0].FirstName);    
+	        print(data[0].FirstName);
+//	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
 	    });
 	}
 

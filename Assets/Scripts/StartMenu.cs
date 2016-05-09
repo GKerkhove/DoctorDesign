@@ -15,6 +15,7 @@ public class StartMenu : MonoBehaviour {
     public GameObject Panel4;
 	// Use this for initialization
 	void Start () {
+        Screen.SetResolution(1280,720,true);
         First.onClick.AddListener(FirstClick);
         Second.onClick.AddListener(SecondClick);
         Third.onClick.AddListener(ThirdClick);

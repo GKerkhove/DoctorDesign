@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -10,6 +11,7 @@ public class StartMenu : MonoBehaviour {
     public Button First;
     public Button Second;
     public Button Third;
+    public Button Fourth;
     public GameObject Panel1;
     public GameObject Panel2;
     public GameObject Panel3;
@@ -20,6 +22,7 @@ public class StartMenu : MonoBehaviour {
         First.onClick.AddListener(FirstClick);
         Second.onClick.AddListener(SecondClick);
         Third.onClick.AddListener(ThirdClick);
+        Fourth.onClick.AddListener(FourthClick);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
         ExitPanel.transform.SetParent(gameObject.transform);
         ExitPanel.transform.localPosition = new Vector3(0, 0, 0);
@@ -63,21 +66,23 @@ public class StartMenu : MonoBehaviour {
 
     void FirstClick()
     {
-        print("lol");
         Panel1.SetActive(false);
         Panel2.SetActive(true);
     }
     void SecondClick()
     {
-        print("lol");
         Panel2.SetActive(false);
         Panel3.SetActive(true);
     }
     void ThirdClick()
     {
-        print("lol");
         Panel3.SetActive(false);
         Panel4.SetActive(true);
+    }
+
+    void FourthClick()
+    {
+        SceneManager.LoadScene("Home");
     }
     
 }

@@ -14,7 +14,7 @@ public class DeviceCameraController : MonoBehaviour {
 		NONE
 	}
 	[HideInInspector]
-	public WebCamTexture cameraTexture; 
+	public WebCamTexture cameraTexture = null; 
 
 	private bool isPlay = false;
 	//public CameraMode e_CameraMode;
@@ -52,6 +52,7 @@ public class DeviceCameraController : MonoBehaviour {
 
 	IEnumerator CamCon()
 	{
+        print(WebCamTexture.devices.Length);
         print("PRE AUTHO");
 	    Application.RequestUserAuthorization(UserAuthorization.WebCam);
         print("IN CAMCON");
@@ -64,22 +65,41 @@ public class DeviceCameraController : MonoBehaviour {
 			{
 				cameraTexture = new WebCamTexture(Screen.width/2,Screen.height/2);  
 			}
-			else
-			{
-				cameraTexture = new WebCamTexture();  
-			}
+//			else
+//			{
+//				cameraTexture = new WebCamTexture();  
+//			}
 		
-			#elif UNITY_ANDROID
-			cameraTexture = new WebCamTexture();  
+//			#elif UNITY_ANDROID
 			#endif
+		    if (cameraTexture == null)
+		    {
+                WebCamDevice[] devices = WebCamTexture.devices;
+
+                foreach (WebCamDevice cam in devices)
+                {
+                    if (cam.isFrontFacing)
+                    {
+                        cameraTexture = new WebCamTexture(cam.name);
+                        cameraTexture.deviceName = cam.name;
+                        //if (webCameraTexture != null && webCameraTexture.didUpdateThisFrame) {
+                        cameraTexture.Play();
+                        //}
+
+                        break;
+                    }
+                }
+		    }
+//            cameraTexture = new WebCamTexture();  
+
             print("CAM CON PRE PLAY");
-			cameraTexture.Play();
+            if(cameraTexture != null)
+			    cameraTexture.Play();
 			isPlay = true;  
 		}
         print("CAM CON STARTED");
 
-        gameObject.SetActive(false);
-        print("CAM CON DISABLED");
+        
 	}
 
 

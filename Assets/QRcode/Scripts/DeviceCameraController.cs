@@ -31,9 +31,10 @@ public class DeviceCameraController : MonoBehaviour {
 	// Use this for initialization  
 	void Awake()  
 	{  
+        print("PRE CAMCON");
 		StartCoroutine(CamCon());  
 		e_CameraPlaneObj = transform.FindChild ("CameraPlane").gameObject;
-
+        print("AFER AWAKE");
 	}
 	
 	// Update is called once per frame  
@@ -49,9 +50,13 @@ public class DeviceCameraController : MonoBehaviour {
 	
 	}
 
-	IEnumerator CamCon()  
-	{  
+	IEnumerator CamCon()
+	{
+        print("PRE AUTHO");
+	    Application.RequestUserAuthorization(UserAuthorization.WebCam);
+        print("IN CAMCON");
 		yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);  
+        print("AFTER YIELD");
 		if (Application.HasUserAuthorization(UserAuthorization.WebCam))  
 		{  
 			#if UNITY_IOS
@@ -67,9 +72,14 @@ public class DeviceCameraController : MonoBehaviour {
 			#elif UNITY_ANDROID
 			cameraTexture = new WebCamTexture();  
 			#endif
+            print("CAM CON PRE PLAY");
 			cameraTexture.Play();
 			isPlay = true;  
-		}  
+		}
+        print("CAM CON STARTED");
+
+        gameObject.SetActive(false);
+        print("CAM CON DISABLED");
 	}
 
 

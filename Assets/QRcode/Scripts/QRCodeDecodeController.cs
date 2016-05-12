@@ -31,7 +31,7 @@ public class QRCodeDecodeController : MonoBehaviour
 	{
         if (!e_DeviceController)
         {
-            e_DeviceController = DeviceController.GetComponent<DeviceCameraController>();
+            e_DeviceController = FindObjectOfType<DeviceCameraController>();
 //            DeviceController.SetActive(false);
             print("DEVICE CONTROLLER STARTED");
             if (!e_DeviceController)

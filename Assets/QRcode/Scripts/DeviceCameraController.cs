@@ -32,7 +32,8 @@ public class DeviceCameraController : MonoBehaviour {
 	void Awake()  
 	{  
         print("PRE CAMCON");
-		StartCoroutine(CamCon());  
+//        StartCoroutine(Start());
+        StartCoroutine(CamCon());  
 		e_CameraPlaneObj = transform.FindChild ("CameraPlane").gameObject;
         print("AFER AWAKE");
 	}
@@ -50,11 +51,24 @@ public class DeviceCameraController : MonoBehaviour {
 	
 	}
 
+    IEnumerator Start()
+    {
+        yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+        if (Application.HasUserAuthorization(UserAuthorization.WebCam))
+        {
+            print("Has autho");
+        }
+        else
+        {
+            print("No autho");
+        }
+    }
+
 	IEnumerator CamCon()
 	{
         print(WebCamTexture.devices.Length);
         print("PRE AUTHO");
-	    Application.RequestUserAuthorization(UserAuthorization.WebCam);
+	    print(Application.RequestUserAuthorization(UserAuthorization.WebCam));
         print("IN CAMCON");
 		yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);  
         print("AFTER YIELD");
@@ -78,7 +92,7 @@ public class DeviceCameraController : MonoBehaviour {
 
                 foreach (WebCamDevice cam in devices)
                 {
-                    if (cam.isFrontFacing)
+                    if (!cam.isFrontFacing)
                     {
                         cameraTexture = new WebCamTexture(cam.name);
                         cameraTexture.deviceName = cam.name;

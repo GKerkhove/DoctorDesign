@@ -33,12 +33,13 @@ public class QRDecodeTest : MonoBehaviour {
 
 	void qrScanFinished(string dataText)
 	{
+	    print("Finished: " + dataText);
 		UiText.text = dataText;
 		if (StartQrBtn != null) {
 			StartQrBtn.SetActive(true);
 		}
-        userCamera.SetActive(false);
         normalCamera.SetActive(true);
+        userCamera.SetActive(false);
         backgroundPanel.SetActive(true);
         scanLineObj.SetActive(false);
 		if(scanLineObj != null)
@@ -61,7 +62,7 @@ public class QRDecodeTest : MonoBehaviour {
         scanLineObj.SetActive(true);
 
         
-//        e_qrController.Reset();
+        e_qrController.Reset();
 //		if (e_qrController != null) {
 //			e_qrController.Reset();
 //		}

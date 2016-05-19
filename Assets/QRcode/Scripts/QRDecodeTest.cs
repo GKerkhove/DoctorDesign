@@ -9,12 +9,13 @@ public class QRDecodeTest : MonoBehaviour {
 
 	public QRCodeDecodeController e_qrController;
 
-	public Text UiText;
+//	public Text UiText;
 	public GameObject StartQrBtn;
 	public GameObject scanLineObj;
     public GameObject userCamera;
 //    public GameObject normalCamera;
     public GameObject backgroundPanel;
+    public GameObject mainPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -34,13 +35,14 @@ public class QRDecodeTest : MonoBehaviour {
 	void qrScanFinished(string dataText)
 	{
 	    print("Finished: " + dataText);
-		UiText.text = dataText;
+//		UiText.text = dataText;
 		if (StartQrBtn != null) {
 			StartQrBtn.SetActive(true);
 		}
 //        normalCamera.SetActive(true);
         userCamera.SetActive(false);
-        backgroundPanel.SetActive(true);
+        mainPanel.SetActive(true);
+        backgroundPanel.SetActive(false);
         scanLineObj.SetActive(false);
 		if(scanLineObj != null)
 		{
@@ -58,7 +60,8 @@ public class QRDecodeTest : MonoBehaviour {
         userCamera.SetActive(true);
 //        userCamera.transform.Find("CameraPlane").gameObject.SetActive(true);
         StartQrBtn.SetActive(false);
-        backgroundPanel.SetActive(false);
+        backgroundPanel.SetActive(true);
+        mainPanel.SetActive(false);
         scanLineObj.SetActive(true);
 
 

@@ -51,7 +51,7 @@ public class DeviceCameraController : MonoBehaviour {
 	
 	}
 
-    IEnumerator Start()
+    IEnumerator doStart()
     {
         yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
         if (Application.HasUserAuthorization(UserAuthorization.WebCam))
@@ -96,11 +96,32 @@ public class DeviceCameraController : MonoBehaviour {
                     {
                         cameraTexture = new WebCamTexture(cam.name);
                         cameraTexture.deviceName = cam.name;
-                        //if (webCameraTexture != null && webCameraTexture.didUpdateThisFrame) {
+                        if (cameraTexture != null && cameraTexture.didUpdateThisFrame)
+                        {
                         cameraTexture.Play();
-                        //}
+                        }
 
                         break;
+                    }
+                }
+                if (cameraTexture == null)
+                {
+                    print("YEAH");
+
+                    foreach (WebCamDevice cam in devices)
+                    {
+                        if (cam.isFrontFacing)
+                        {
+                            print("BLAdiebla");
+                            cameraTexture = new WebCamTexture(cam.name);
+                            cameraTexture.deviceName = cam.name;
+                            if (cameraTexture != null && cameraTexture.didUpdateThisFrame)
+                            {
+                            cameraTexture.Play();
+                            }
+
+                            break;
+                        }
                     }
                 }
 		    }
@@ -108,8 +129,10 @@ public class DeviceCameraController : MonoBehaviour {
 
             print("CAM CON PRE PLAY");
             if(cameraTexture != null)
-			    cameraTexture.Play();
-			isPlay = true;  
+                isPlay = true;
+//                cameraTexture.Play();
+            if(cameraTexture == null)
+		        print("Camtext");
 		}
         print("CAM CON STARTED");
 

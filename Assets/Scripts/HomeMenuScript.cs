@@ -22,9 +22,9 @@ public class HomeMenuScript : MonoBehaviour {
         StatusButton.onClick.AddListener(StatusClicked);
         MapButton.onClick.AddListener(MapClicked);
         AgendaButton.onClick.AddListener(AgendaClicked);
-        StatusSelector = new Vector3(-163.6f, -80.8f, 0);
-        MapSelector = new Vector3(0.2f, -80.8f, 0);
-        AgendaSelector = new Vector3(164.1f, -80.8f, 0);
+        StatusSelector = new Vector3(-150f, -80.8f, 0);
+        MapSelector = new Vector3(0f, -80.8f, 0);
+        AgendaSelector = new Vector3(150f, -80.8f, 0);
     }
 	
     void StatusClicked()

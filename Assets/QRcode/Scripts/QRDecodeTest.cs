@@ -38,7 +38,7 @@ public class QRDecodeTest : MonoBehaviour {
 		if (StartQrBtn != null) {
 			StartQrBtn.SetActive(true);
 		}
-        normalCamera.SetActive(true);
+//        normalCamera.SetActive(true);
         userCamera.SetActive(false);
         backgroundPanel.SetActive(true);
         scanLineObj.SetActive(false);
@@ -54,7 +54,7 @@ public class QRDecodeTest : MonoBehaviour {
     public void StartQR()
     {
 //        e_qrController.StopWork();
-        normalCamera.SetActive(false);
+//        normalCamera.SetActive(false);
         userCamera.SetActive(true);
 //        userCamera.transform.Find("CameraPlane").gameObject.SetActive(true);
         StartQrBtn.SetActive(false);

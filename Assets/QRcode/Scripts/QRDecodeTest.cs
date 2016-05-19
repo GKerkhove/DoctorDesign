@@ -13,7 +13,7 @@ public class QRDecodeTest : MonoBehaviour {
 	public GameObject StartQrBtn;
 	public GameObject scanLineObj;
     public GameObject userCamera;
-    public GameObject normalCamera;
+//    public GameObject normalCamera;
     public GameObject backgroundPanel;
 
 	// Use this for initialization

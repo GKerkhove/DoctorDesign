@@ -27,16 +27,8 @@ public class HomeMenuScript : MonoBehaviour {
         AgendaSelector = new Vector3(164.1f, -80.8f, 0);
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
-
     void StatusClicked()
     {
-        print("lol");
         StatusPanel.SetActive(true);
         MapPanel.SetActive(false);
         AgendaPanel.SetActive(false);
@@ -45,7 +37,6 @@ public class HomeMenuScript : MonoBehaviour {
 
     void MapClicked()
     {
-        print("lol");
         StatusPanel.SetActive(false);
         MapPanel.SetActive(true);
         AgendaPanel.SetActive(false);
@@ -54,7 +45,6 @@ public class HomeMenuScript : MonoBehaviour {
     }
     void AgendaClicked()
     {
-        print("lol");
         StatusPanel.SetActive(false);
         MapPanel.SetActive(false);
         AgendaPanel.SetActive(true);

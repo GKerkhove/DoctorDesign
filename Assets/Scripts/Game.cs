@@ -23,13 +23,11 @@ public class Game : MonoBehaviour {
 
     void ExitClick()
     {
-        print("EXIT");
         Application.Quit();
     }
 
     void CloseClick()
     {
-        print("CLOSE");
         ExitPanel.SetActive(false);
     }
 	
@@ -37,7 +35,6 @@ public class Game : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print("test");
             if (ExitPanel == null)
             {
                 ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));

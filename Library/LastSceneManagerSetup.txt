@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/QRcode/Scene/QRScanScene.unity
+- path: Assets/Lars.unity
   isLoaded: 1
   isActive: 1

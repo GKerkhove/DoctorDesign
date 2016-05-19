@@ -33,12 +33,13 @@ public class QRDecodeTest : MonoBehaviour {
 
 	void qrScanFinished(string dataText)
 	{
+	    print("Finished: " + dataText);
 		UiText.text = dataText;
 		if (StartQrBtn != null) {
 			StartQrBtn.SetActive(true);
 		}
-        userCamera.SetActive(false);
         normalCamera.SetActive(true);
+        userCamera.SetActive(false);
         backgroundPanel.SetActive(true);
         scanLineObj.SetActive(false);
 		if(scanLineObj != null)
@@ -47,11 +48,11 @@ public class QRDecodeTest : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// reset the QRScanner Controller 
-	/// </summary>
-	public void StartQR()
-	{
+    /// <summary>
+    /// reset the QRScanner Controller 
+    /// </summary>
+    public void StartQR()
+    {
 //        e_qrController.StopWork();
         normalCamera.SetActive(false);
         userCamera.SetActive(true);
@@ -60,29 +61,15 @@ public class QRDecodeTest : MonoBehaviour {
         backgroundPanel.SetActive(false);
         scanLineObj.SetActive(true);
 
-        
-//        e_qrController.Reset();
-//		if (e_qrController != null) {
-//			e_qrController.Reset();
-//		}
 
-//		if (UiText != null) {
-//			UiText.text = "";	
-//		}
-//		
-//		if (StartQrBtn != null) {
-//			StartQrBtn.SetActive(false);
-//		}
+        e_qrController.Reset();
 
-//		if(scanLineObj != null)
-//		{
-//			scanLineObj.SetActive(true);
-//		}
-	}
-	/// <summary>
+    }
+
+    /// <summary>
 	/// if you want to go to other scene ,you must call the QRCodeDecodeController.StopWork(),otherwise,the application will crashed on Mobile .
 	/// </summary>
-	/// <param name="scenename">Scenename.</param>
+//	/// <param name="scenename">Scenename.</param>
 	public void GotoNextScene(string scenename)
 	{
 		if (e_qrController != null) {

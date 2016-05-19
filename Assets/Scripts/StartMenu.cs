@@ -16,18 +16,13 @@ public class StartMenu : MonoBehaviour {
     public GameObject Panel2;
     public GameObject Panel3;
     public GameObject Panel4;
-    public GameObject ExitPanel;
 	// Use this for initialization
 	void Start () {
         First.onClick.AddListener(FirstClick);
         Second.onClick.AddListener(SecondClick);
         Third.onClick.AddListener(ThirdClick);
         Fourth.onClick.AddListener(FourthClick);
-        ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
-        ExitPanel.transform.SetParent(gameObject.transform);
-        ExitPanel.transform.localPosition = new Vector3(0, 0, 0);
-        ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-        ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+        
 	    DatabaseManager.Get().retrieveAll(data =>
 	    {
 	        print(data[0].FirstName);
@@ -38,9 +33,9 @@ public class StartMenu : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            print("test");
+//        if(Input.GetKeyDown(KeyCode.Escape))
+//        {
+//            print("test");
 //            if (ExitPanel == null)
 //            {
 //                ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
@@ -50,19 +45,11 @@ public class StartMenu : MonoBehaviour {
 //                ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
 //                ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
 //            }
-            ExitPanel.SetActive(!ExitPanel.activeSelf);
-        }
+//            ExitPanel.SetActive(!ExitPanel.activeSelf);
+//        }
     }
 
-    void ExitClick()
-    {
-        Application.Quit();
-    }
-
-    void CloseClick()
-    {
-        ExitPanel.SetActive(true);
-    }
+    
 
     void FirstClick()
     {

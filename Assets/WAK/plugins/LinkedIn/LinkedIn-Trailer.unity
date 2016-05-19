@@ -1,0 +1,1508 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+SceneSettings:
+  m_ObjectHideFlags: 0
+  m_PVSData: 
+  m_PVSObjectsArray: []
+  m_PVSPortalsArray: []
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: .25
+    backfaceThreshold: 100
+--- !u!104 &2
+RenderSettings:
+  m_Fog: 0
+  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: .00999999978
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: .5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 0}
+  m_ObjectHideFlags: 0
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
+--- !u!157 &4
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  m_LightProbes: {fileID: 0}
+  m_Lightmaps: []
+  m_LightmapsMode: 1
+  m_BakedColorSpace: 0
+  m_UseDualLightmapsInForward: 0
+  m_LightmapEditorSettings:
+    m_Resolution: 50
+    m_LastUsedResolution: 0
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
+    m_BounceBoost: 1
+    m_BounceIntensity: 1
+    m_SkyLightColor: {r: .860000014, g: .930000007, b: 1, a: 1}
+    m_SkyLightIntensity: 0
+    m_Quality: 0
+    m_Bounces: 1
+    m_FinalGatherRays: 1000
+    m_FinalGatherContrastThreshold: .0500000007
+    m_FinalGatherGradientThreshold: 0
+    m_FinalGatherInterpolationPoints: 15
+    m_AOAmount: 0
+    m_AOMaxDistance: .100000001
+    m_AOContrast: 1
+    m_LODSurfaceMappingDistance: 1
+    m_Padding: 0
+    m_TextureCompression: 0
+    m_LockAtlas: 0
+--- !u!196 &5
+NavMeshSettings:
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    agentRadius: .5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: .400000006
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    accuratePlacement: 0
+    minRegionArea: 2
+    widthInaccuracy: 16.666666
+    heightInaccuracy: 10
+  m_NavMesh: {fileID: 0}
+--- !u!1 &50836471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 50836472}
+  - 114: {fileID: 50836473}
+  m_Layer: 0
+  m_Name: Trailer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50836472
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50836471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+--- !u!114 &50836473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50836471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2616bae387f40cbb0c9f128006f94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopLevelApplicationObject: {fileID: 50836472}
+  pfProfile: {fileID: 100000, guid: a686e2297b81540b0b135da1634959b8, type: 2}
+  pfCompany: {fileID: 100000, guid: a686e2297b81540b0b135da1634959b8, type: 2}
+  _pfCompanyInstances: []
+  _companyIds: []
+--- !u!1 &115079251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 115079252}
+  - 114: {fileID: 115079253}
+  m_Layer: 0
+  m_Name: Company by Id Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115079252
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115079251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1023367817}
+  m_RootOrder: 1
+--- !u!114 &115079253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115079251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9147b2f02e236471e810e52b2701c031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Company:
+    id: 0
+    name: 
+    universalName: 
+    ticker: 
+    websiteUrl: 
+    logoUrl: 
+    squareLogoUrl: 
+    blogRssUrl: 
+    twitterId: 
+    industry: 
+    type: 
+    size: 
+    numFollowers: 0
+    specialties:
+      _total: 0
+      values: []
+    companyType:
+      code: 
+      name: 
+    employeeCountRange:
+      code: 
+      name: 
+    status:
+      code: 
+      name: 
+    emailDomains:
+      _total: 0
+      values: []
+  CompanyId: 
+--- !u!1 &222554490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 222554491}
+  - 114: {fileID: 222554492}
+  m_Layer: 0
+  m_Name: Connections For Id Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &222554491
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222554490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1757040466}
+  m_RootOrder: 1
+--- !u!114 &222554492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222554490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27463ea532d38b54f9de8160773334dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Connections:
+    _count: 0
+    _start: 0
+    _total: 0
+    values: []
+  ProfileId: 
+  Start: 
+  Count: 
+  Modified: 
+  ModifiedSince: 
+--- !u!1 &256540955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 256540956}
+  m_Layer: 0
+  m_Name: Jobs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256540956
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256540955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 824430084}
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 4
+--- !u!1 &319476731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 319476732}
+  - 114: {fileID: 319476733}
+  m_Layer: 0
+  m_Name: Profile By Id Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &319476732
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319476731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1553566911}
+  m_RootOrder: 1
+--- !u!114 &319476733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319476731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e284328c5de874fbd1f154b6cd7e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Profiles:
+    _total: 0
+    values: []
+  ProfileId: 
+  SecureUrls: 0
+--- !u!1 &333320912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 333320913}
+  - 114: {fileID: 333320914}
+  m_Layer: 0
+  m_Name: Profile By URL Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333320913
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333320912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1553566911}
+  m_RootOrder: 2
+--- !u!114 &333320914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333320912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a6d653c53ba1e48bc68e688c682646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Profiles:
+    _total: 0
+    values: []
+  ProfileUrl: 
+  SecureUrls: 0
+--- !u!1 &406438459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 406438460}
+  m_Layer: 0
+  m_Name: LinkedIn API
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406438460
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406438459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1882715974}
+  - {fileID: 1553566911}
+  - {fileID: 1757040466}
+  - {fileID: 1023367817}
+  - {fileID: 256540956}
+  - {fileID: 2069619468}
+  - {fileID: 1642307669}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!1 &500113298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 500113299}
+  - 114: {fileID: 500113300}
+  m_Layer: 0
+  m_Name: Multiple Profiles Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &500113299
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500113298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1553566911}
+  m_RootOrder: 3
+--- !u!114 &500113300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500113298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6485870dbc124b2da27360898457a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 01/01/0001 00:00:00
+  Profiles:
+    _total: 0
+    values: []
+  ProfileIdentifiers: []
+  SecureUrls: 0
+--- !u!1 &754947050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 754947051}
+  - 114: {fileID: 754947052}
+  m_Layer: 0
+  m_Name: Company by Email Domain Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754947051
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 754947050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1023367817}
+  m_RootOrder: 0
+--- !u!114 &754947052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 754947050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780780b70970d3f4b93bdfaa35aa52ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Companies:
+    _total: 0
+    values: []
+  CompanyDomain: 
+--- !u!1 &822584611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 822584612}
+  - 114: {fileID: 822584613}
+  m_Layer: 0
+  m_Name: Send Id Invitations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &822584612
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822584611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2069619468}
+  m_RootOrder: 2
+--- !u!114 &822584613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822584611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173984fa77a0ce84d97dfe0b567d44aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Invitee:
+    Id: 
+    AuthName: 
+    AuthValue: 
+  Subject: 
+  Body: 
+--- !u!1 &824430083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 824430084}
+  - 114: {fileID: 824430085}
+  m_Layer: 0
+  m_Name: Job Search by Company Name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &824430084
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824430083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 256540956}
+  m_RootOrder: 0
+--- !u!114 &824430085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 824430083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1745cd6198c4540988d25a10311014aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Jobs:
+    facets:
+      _total: 0
+      values: []
+    jobs:
+      _count: 0
+      _start: 0
+      _total: 0
+      values: []
+    numResults: 0
+  CompanyName: 
+--- !u!1 &848391352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 848391353}
+  - 114: {fileID: 848391354}
+  m_Layer: 0
+  m_Name: Retrieve Image Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848391353
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848391352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1642307669}
+  m_RootOrder: 0
+--- !u!114 &848391354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848391352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b59801757f01c8459751707b2338e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  AbsoluteUri: 
+  Image: {fileID: 0}
+--- !u!1 &934930459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 934930460}
+  - 114: {fileID: 934930461}
+  m_Layer: 0
+  m_Name: Connections For URL Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &934930460
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934930459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1757040466}
+  m_RootOrder: 2
+--- !u!114 &934930461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934930459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f3a54270031a34ea2d6645a87c01be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Connections:
+    _count: 0
+    _start: 0
+    _total: 0
+    values: []
+  ProfileUrl: 
+  Start: 
+  Count: 
+  Modified: 
+  ModifiedSince: 
+--- !u!1 &1023367816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1023367817}
+  m_Layer: 0
+  m_Name: Companies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1023367817
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023367816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 754947051}
+  - {fileID: 115079252}
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 3
+--- !u!1 &1553566910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1553566911}
+  m_Layer: 0
+  m_Name: Profile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1553566911
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1553566910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1862546003}
+  - {fileID: 319476732}
+  - {fileID: 333320913}
+  - {fileID: 500113299}
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 1
+--- !u!1 &1642307668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1642307669}
+  m_Layer: 0
+  m_Name: Media
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642307669
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1642307668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 848391353}
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 6
+--- !u!1 &1714744542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1714744543}
+  - 114: {fileID: 1714744544}
+  m_Layer: 0
+  m_Name: My Connections Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714744543
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714744542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1757040466}
+  m_RootOrder: 0
+--- !u!114 &1714744544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714744542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c87c3c756c80443acd48c263046901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Connections:
+    _count: 0
+    _start: 0
+    _total: 0
+    values: []
+  Start: 
+  Count: 
+  Modified: 
+  ModifiedSince: 
+--- !u!1 &1757040465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1757040466}
+  m_Layer: 0
+  m_Name: Connections
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1757040466
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1757040465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1714744543}
+  - {fileID: 222554491}
+  - {fileID: 934930460}
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 2
+--- !u!1 &1819777658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1819777659}
+  - 114: {fileID: 1819777660}
+  m_Layer: 0
+  m_Name: Send Email Invitations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1819777659
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819777658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2069619468}
+  m_RootOrder: 1
+--- !u!114 &1819777660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1819777658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435c8559ff9655640bd4ccb487336def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Invitee:
+    Email: 
+    FistName: 
+    LastName: 
+  Subject: 
+  Body: 
+--- !u!1 &1862546001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1862546003}
+  - 114: {fileID: 1862546002}
+  m_Layer: 0
+  m_Name: My Profile Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1862546002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1862546001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33871f6b7e4dfb14a902c67eeee6e057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  Profiles:
+    _total: 0
+    values: []
+  SecureUrls: 0
+--- !u!4 &1862546003
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1862546001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1553566911}
+  m_RootOrder: 0
+--- !u!1 &1882715972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1882715974}
+  - 114: {fileID: 1882715973}
+  m_Layer: 0
+  m_Name: Initialize API
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1882715973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882715972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb49ea2c9b92b49d1aa1dddfea86eff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOperationOnCompletion: 1
+  YieldTime: 0
+  LogVerbose: 0
+  LogInformation: 1
+  LogWarning: 1
+  LogError: 1
+  BaseUri: https://api.linkedin.com/v1
+  AccessToken: AQXBwAXrzAfgAj2b9RL0huJy7WEy1WdhhBzKMKLE6I9PBBRUqQJkqay87tRYLqDj0h1agMOcwEbibNx_eLTz7MmAHjiNTt8JgBz6TCb6mqF2cVt9qtk4viWLIaJhaCBlDmsZYjjqjhcQXBRHu2u_LDTsmUCnzHWqo9Kv1eGeJeiHGxfPYxU
+  ProfileFieldSelectors: :(id,first-name,last-name,maiden-name,formatted-name,phonetic-first-name,phonetic-last-name,formatted-phonetic-name,headline,location:(name,country:(code)),industry,distance,current-share,num-connections,num-connections-capped,summary,specialties,positions:(company:(id,name,type,size,industry,ticker)),picture-url,site-standard-profile-request,api-standard-profile-request,public-profile-url,email-address,connections,phone-numbers)
+  ConnectionsFieldSelectors: :(id,first-name,last-name,maiden-name,formatted-name,phonetic-first-name,phonetic-last-name,formatted-phonetic-name,headline,location:(name,country:(code)),industry,distance,current-share,num-connections,num-connections-capped,summary,specialties,positions:(company:(id,name,type,size,industry,ticker)),picture-url,site-standard-profile-request,api-standard-profile-request,public-profile-url,email-address,connections,phone-numbers)
+  CompanyFieldSelectors: :(id,name,universal-name,email-domains,company-type,ticker,website-url,status,logo-url,square-logo-url,blog-rss-url,twitter-id,employee-count-range,industry,specialties,num-followers)
+  JobFieldSelectors: :(jobs:(id,customer-job-code,active,posting-date,expiration-date,posting-timestamp,expiration-timestamp,company:(id,name),position:(title,location,job-functions,industries,job-type,experience-level),skills-and-experience,description-snippet,description,salary,job-poster:(id,first-name,last-name,headline),referral-bonus,site-job-url,location-description))
+--- !u!4 &1882715974
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882715972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 0
+--- !u!1 &1944554992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1944554993}
+  - 114: {fileID: 1944554994}
+  m_Layer: 0
+  m_Name: Send Message Behavior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1944554993
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944554992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2069619468}
+  m_RootOrder: 0
+--- !u!114 &1944554994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944554992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21eef4d6bf35e14e9bcc50e403dbc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RequestQuickView: 
+  ResponseQuickView: 
+  Operation:
+    IsFaulted: 0
+    FaultReasons: []
+  Request:
+    Operation:
+      IsFaulted: 0
+      FaultReasons: []
+    TransactionId: 
+    Timeout: 0
+    Verb: 
+    Uri: 
+    EscapedUri: 
+    Data: 
+  Response:
+    TimeToComplete: 0
+    HasError: 0
+    Error: 
+    Text: 
+    Data: 
+    StatusCode: 0
+  WaitWhenBusy: .100000001
+  Status: 0
+  CompletionTime: 1/1/0001 12:00:00 AM
+  ToProfileIds: []
+  CopySelf: 0
+  Subject: 
+  Body: 
+--- !u!1 &2069619467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2069619468}
+  m_Layer: 0
+  m_Name: Messaging
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2069619468
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2069619467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1944554993}
+  - {fileID: 1819777659}
+  - {fileID: 822584612}
+  m_Father: {fileID: 406438460}
+  m_RootOrder: 5
+--- !u!1 &2077761338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2077761343}
+  - 20: {fileID: 2077761342}
+  - 92: {fileID: 2077761341}
+  - 124: {fileID: 2077761340}
+  - 81: {fileID: 2077761339}
+  - 108: {fileID: 2077761344}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &2077761339
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077761338}
+  m_Enabled: 1
+--- !u!124 &2077761340
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077761338}
+  m_Enabled: 1
+--- !u!92 &2077761341
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077761338}
+  m_Enabled: 1
+--- !u!20 &2077761342
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077761338}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: .00999999978
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
+--- !u!4 &2077761343
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077761338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!108 &2077761344
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077761338}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .519999981
+  m_Range: 83.1655045
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}

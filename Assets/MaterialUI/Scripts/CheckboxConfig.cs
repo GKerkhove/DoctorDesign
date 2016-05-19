@@ -73,6 +73,10 @@ namespace MaterialUI
 			toggle = gameObject.GetComponent<Toggle>();
 			checkRectTransform = checkImage.GetComponent<RectTransform>();
 			frameCanvasGroup = frameImage.GetComponent<CanvasGroup>();
+		    if (text == null)
+		    {
+		        text = gameObject.transform.parent.Find("Text").GetComponent<Text>();
+		    }
 			checkBoxToggler = text.GetComponent<CheckBoxToggler>();
 			rippleConfig = gameObject.GetComponent<RippleConfig>();
 		}

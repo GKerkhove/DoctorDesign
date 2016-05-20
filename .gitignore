@@ -9,6 +9,8 @@ sysinfo.txt
 *.stackdump
 *.apk
 /*.meta
+Library/
+library/
 
  
 # ===================================== #

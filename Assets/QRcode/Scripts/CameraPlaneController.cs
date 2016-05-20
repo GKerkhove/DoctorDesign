@@ -153,7 +153,7 @@ public class CameraPlaneController : MonoBehaviour {
 
 	int GetSDKLevel()
 	{
-		System.IntPtr calssz = AndroidJNI.FindClass ("android.os.Build$VERSION");
+		System.IntPtr calssz = AndroidJNI.FindClass ("android/os/Build$VERSION");
 		System.IntPtr fieldID  = AndroidJNI.GetStaticFieldID(calssz,"SDK_INT", "I");
 		int sdkLevel = AndroidJNI.GetStaticIntField(calssz, fieldID);
 		return sdkLevel;

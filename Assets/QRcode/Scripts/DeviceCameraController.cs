@@ -14,7 +14,7 @@ public class DeviceCameraController : MonoBehaviour {
 		NONE
 	}
 	[HideInInspector]
-	public WebCamTexture cameraTexture = null; 
+	public WebCamTexture cameraTexture; 
 
 	private bool isPlay = false;
 	//public CameraMode e_CameraMode;
@@ -31,11 +31,9 @@ public class DeviceCameraController : MonoBehaviour {
 	// Use this for initialization  
 	void Awake()  
 	{  
-        print("PRE CAMCON");
-//        StartCoroutine(Start());
-        StartCoroutine(CamCon());  
+		StartCoroutine(CamCon());  
 		e_CameraPlaneObj = transform.FindChild ("CameraPlane").gameObject;
-        print("AFER AWAKE");
+
 	}
 	
 	// Update is called once per frame  
@@ -51,27 +49,9 @@ public class DeviceCameraController : MonoBehaviour {
 	
 	}
 
-    IEnumerator doStart()
-    {
-        yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
-        if (Application.HasUserAuthorization(UserAuthorization.WebCam))
-        {
-            print("Has autho");
-        }
-        else
-        {
-            print("No autho");
-        }
-    }
-
-	IEnumerator CamCon()
-	{
-        print(WebCamTexture.devices.Length);
-        print("PRE AUTHO");
-	    print(Application.RequestUserAuthorization(UserAuthorization.WebCam));
-        print("IN CAMCON");
+	IEnumerator CamCon()  
+	{  
 		yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);  
-        print("AFTER YIELD");
 		if (Application.HasUserAuthorization(UserAuthorization.WebCam))  
 		{  
 			#if UNITY_IOS
@@ -79,64 +59,17 @@ public class DeviceCameraController : MonoBehaviour {
 			{
 				cameraTexture = new WebCamTexture(Screen.width/2,Screen.height/2);  
 			}
-//			else
-//			{
-//				cameraTexture = new WebCamTexture();  
-//			}
+			else
+			{
+				cameraTexture = new WebCamTexture();  
+			}
 		
-//			#elif UNITY_ANDROID
+			#elif UNITY_ANDROID
+			cameraTexture = new WebCamTexture();  
 			#endif
-		    if (cameraTexture == null)
-		    {
-                WebCamDevice[] devices = WebCamTexture.devices;
-
-                foreach (WebCamDevice cam in devices)
-                {
-                    if (!cam.isFrontFacing)
-                    {
-                        cameraTexture = new WebCamTexture(cam.name);
-                        cameraTexture.deviceName = cam.name;
-                        if (cameraTexture != null && cameraTexture.didUpdateThisFrame)
-                        {
-                        cameraTexture.Play();
-                        }
-
-                        break;
-                    }
-                }
-                if (cameraTexture == null)
-                {
-                    print("YEAH");
-
-                    foreach (WebCamDevice cam in devices)
-                    {
-                        if (cam.isFrontFacing)
-                        {
-                            print("BLAdiebla");
-                            cameraTexture = new WebCamTexture(cam.name);
-                            cameraTexture.deviceName = cam.name;
-                            if (cameraTexture != null && cameraTexture.didUpdateThisFrame)
-                            {
-                            cameraTexture.Play();
-                            }
-
-                            break;
-                        }
-                    }
-                }
-		    }
-//            cameraTexture = new WebCamTexture();  
-
-            print("CAM CON PRE PLAY");
-            if(cameraTexture != null)
-                isPlay = true;
-//                cameraTexture.Play();
-            if(cameraTexture == null)
-		        print("Camtext");
-		}
-        print("CAM CON STARTED");
-
-        
+			cameraTexture.Play();
+			isPlay = true;  
+		}  
 	}
 
 

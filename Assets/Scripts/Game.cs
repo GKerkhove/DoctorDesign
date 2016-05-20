@@ -20,6 +20,7 @@ public class Game : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+        print(Application.persistentDataPath);
 	    if (CurrentUser.HasPerson())
 	    {
 	        CurrentCanvas.SetActive(false);

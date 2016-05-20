@@ -53,6 +53,11 @@ public class DatabaseManager : MonoBehaviour
                 }
                 callback(persons);
             }
+            else
+            {
+                print("empty callback");
+                callback(null);
+            }
         }));
     }
 

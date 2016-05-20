@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Theo.unity
   - enabled: 0
     path: Assets/Generator.unity
+  - enabled: 0
+    path: Assets/Jimi.unity

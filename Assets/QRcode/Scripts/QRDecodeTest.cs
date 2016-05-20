@@ -36,19 +36,27 @@ public class QRDecodeTest : MonoBehaviour {
 	void qrScanFinished(string dataText)
 	{
         print(dataText);
-        NextButtonLogin.SetActive(true);
-        Game.Get().CurrentCanvas.SetActive(true);
-        e_qrController.StopCamera();
+//        Game.Get().CurrentCanvas.SetActive(true);
 	    if (Game.Get().CurrentCanvas.name == "StartCanvas")
 	    {
 //	        UiText.text = dataText;
             DatabaseManager.Get().retrieveByEmail(dataText,data =>
             {
-                Game.Get().User = data;
-                UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
-                              data.Email;
-                print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
-                              data.Email);
+                if (data != null)
+                {
+                    e_qrController.StopCamera();
+                    NextButtonLogin.SetActive(true);
+                    Game.Get().User = data;
+                    UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                                  data.Email;
+                    print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                          data.Email);
+                }
+                else
+                {
+                    print("bla123");
+//                    e_qrController.StartCamera();
+                }
                 //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
             });
 	    }

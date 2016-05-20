@@ -36,11 +36,12 @@ public class QRDecodeTest : MonoBehaviour {
         print(dataText);
         Game.Get().CurrentCanvas.SetActive(true);
         e_qrController.StopCamera();
-	    if (Game.Get().CurrentCanvas.tag == "MainCanvas")
+	    if (Game.Get().CurrentCanvas.name == "StartCanvas")
 	    {
 //	        UiText.text = dataText;
             DatabaseManager.Get().retrieveByEmail(dataText,data =>
             {
+                Game.Get().User = data;
                 UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
                               data.Email;
                 print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +

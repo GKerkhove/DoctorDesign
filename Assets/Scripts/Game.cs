@@ -5,8 +5,10 @@ public class Game : MonoBehaviour {
 
     public GameObject ExitPanel;
     public GameObject CurrentCanvas;
+    public GameObject HomeCanvas;
     private static Game _instance;
     public QRCodeDecodeController qrController;
+    public Person User;
 
     private bool CameraShown = false;
 
@@ -18,6 +20,13 @@ public class Game : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+	    if (CurrentUser.HasPerson())
+	    {
+	        CurrentCanvas.SetActive(false);
+	        CurrentCanvas = HomeCanvas;
+            CurrentCanvas.SetActive(true);
+	        User = CurrentUser.GetPerson();
+	    }
 	    _instance = this;
         DontDestroyOnLoad(gameObject);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));

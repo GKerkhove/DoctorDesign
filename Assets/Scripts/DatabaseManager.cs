@@ -18,7 +18,24 @@ public class DatabaseManager : MonoBehaviour
         return instance;
     }
 
+    public void searchUser(string url, System.Action<List<Person>> callback)
+    {
+        WWW www = new WWW(url);
+        List<Person> persons = new List<Person>();
 
+        StartCoroutine(WaitForRequest(www, data =>
+        {
+            if (data.error == null)
+            {
+                JSONNode n = JSON.Parse(data.text);
+                for (int i = 0; i < n.Count; i++)
+                {
+                    persons.Add(Person.GetFromJSON(n[i]));
+                }
+                callback(persons);
+            }
+        })); 
+    }
 
     public void retrieveAll(System.Action<List<Person>> callback)
     {
@@ -48,18 +65,10 @@ public class DatabaseManager : MonoBehaviour
             if (data.error == null)
             {
                 JSONNode n = JSON.Parse(data.text);
-                callback(Person.GetFromJSON(n[0]));
+                callback(Person.GetFromJSON(n));
             }
         }));
     }
-
-//    IEnumerator Start(string url)
-//    {
-//        WWW www = new WWW(url);
-//        yield return www;
-////        Renderer renderer = GetComponent<Renderer>();
-////        renderer.material.mainTexture = www.texture;
-//    }
 
     IEnumerator WaitForRequest(WWW www, System.Action<WWW> callback)
     {

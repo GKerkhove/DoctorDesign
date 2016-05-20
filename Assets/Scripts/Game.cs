@@ -6,6 +6,9 @@ public class Game : MonoBehaviour {
     public GameObject ExitPanel;
     public GameObject CurrentCanvas;
     private static Game _instance;
+    public QRCodeDecodeController qrController;
+
+    private bool CameraShown = false;
 
     public static Game Get()
     {
@@ -38,6 +41,8 @@ public class Game : MonoBehaviour {
     void CloseClick()
     {
         ExitPanel.SetActive(false);
+        qrController.StartCamera();
+        CameraShown = false;
     }
 	
 	// Update is called once per frame
@@ -56,6 +61,11 @@ public class Game : MonoBehaviour {
             ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
             ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
             ExitPanel.SetActive(!ExitPanel.activeSelf);
+            if (qrController.e_DeviceController.cameraTexture.isPlaying)
+            {
+                qrController.StopCamera();
+                CameraShown = true;
+            }
         }
 	}
 }

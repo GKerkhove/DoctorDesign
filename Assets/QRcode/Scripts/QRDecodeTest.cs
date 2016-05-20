@@ -20,6 +20,7 @@ public class QRDecodeTest : MonoBehaviour {
 	void Start () {
 		if (e_qrController != null) {
 			e_qrController.e_QRScanFinished += qrScanFinished;
+		    Game.Get().qrController = e_qrController;
 		}
         startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
         startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);
@@ -37,7 +38,15 @@ public class QRDecodeTest : MonoBehaviour {
         e_qrController.StopCamera();
 	    if (Game.Get().CurrentCanvas.tag == "MainCanvas")
 	    {
-	        UiText.text = dataText;
+//	        UiText.text = dataText;
+            DatabaseManager.Get().retrieveByEmail(dataText,data =>
+            {
+                UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                              data.Email;
+                print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                              data.Email);
+                //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
+            });
 	    }
 	}
 

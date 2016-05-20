@@ -14,6 +14,8 @@ public class QRDecodeTest : MonoBehaviour {
     public GameObject startBtn2;
 	public GameObject scanLineObj;
 
+    public GameObject NextButtonLogin;
+
 //    public GameObject MainCanvas;
 
 	// Use this for initialization
@@ -34,6 +36,7 @@ public class QRDecodeTest : MonoBehaviour {
 	void qrScanFinished(string dataText)
 	{
         print(dataText);
+        NextButtonLogin.SetActive(true);
         Game.Get().CurrentCanvas.SetActive(true);
         e_qrController.StopCamera();
 	    if (Game.Get().CurrentCanvas.name == "StartCanvas")

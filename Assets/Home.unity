@@ -281,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &51484709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1099,6 +1099,7 @@ MonoBehaviour:
   startBtn: {fileID: 442493663}
   startBtn2: {fileID: 1012028419}
   scanLineObj: {fileID: 189295152}
+  NextButtonLogin: {fileID: 51484708}
 --- !u!20 &313927923 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2055064, guid: 6dd8a13b4d36288498b7f2522ce9ba8e,
@@ -3386,7 +3387,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 48.844223, y: 19.899498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856505088
 MonoBehaviour:
@@ -6667,7 +6668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1413789041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7063,7 +7064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1484231754
 RectTransform:
   m_ObjectHideFlags: 0

@@ -4,9 +4,18 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour {
 
     public GameObject ExitPanel;
+    public GameObject CurrentCanvas;
+    private static Game _instance;
+
+    public static Game Get()
+    {
+        return _instance;
+    }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+	    _instance = this;
         DontDestroyOnLoad(gameObject);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
         GameObject go = GameObject.FindGameObjectWithTag("MainCanvas");

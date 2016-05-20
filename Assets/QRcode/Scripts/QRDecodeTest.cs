@@ -10,17 +10,19 @@ public class QRDecodeTest : MonoBehaviour {
 	public QRCodeDecodeController e_qrController;
 
 	public Text UiText;
-	public GameObject resetBtn;
+    public GameObject startBtn;
+    public GameObject startBtn2;
 	public GameObject scanLineObj;
 
-    public GameObject MainCanvas;
+//    public GameObject MainCanvas;
 
 	// Use this for initialization
 	void Start () {
 		if (e_qrController != null) {
 			e_qrController.e_QRScanFinished += qrScanFinished;
 		}
-        resetBtn.GetComponent<Button>().onClick.AddListener(Reset);
+        startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
+        startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);
 	}
 	
 	// Update is called once per frame
@@ -31,27 +33,24 @@ public class QRDecodeTest : MonoBehaviour {
 	void qrScanFinished(string dataText)
 	{
         print(dataText);
-        MainCanvas.SetActive(true);
-
-		if (resetBtn != null) {
-			resetBtn.SetActive(true);
-		}
-		
-		if(scanLineObj != null)
-		{
-			scanLineObj.SetActive(false);
-		}
+        Game.Get().CurrentCanvas.SetActive(true);
+        e_qrController.StopCamera();
+	    if (Game.Get().CurrentCanvas.tag == "MainCanvas")
+	    {
+	        UiText.text = dataText;
+	    }
 	}
 
 	/// <summary>
 	/// reset the QRScanner Controller 
 	/// </summary>
-	public void Reset()
+	public void StartScan()
 	{
 
 		if (e_qrController != null) {
 			e_qrController.Reset();
 		}
+        e_qrController.StartCamera();
 
 //		if (UiText != null) {
 //			UiText.text = "";	
@@ -60,13 +59,8 @@ public class QRDecodeTest : MonoBehaviour {
 //		if (resetBtn != null) {
 //			resetBtn.SetActive(false);
 //		}
-	    MainCanvas.SetActive(false);
-	    print("test");
-
-		if(scanLineObj != null)
-		{
-			scanLineObj.SetActive(true);
-		}
+        if(Game.Get().CurrentCanvas.name != "StartCanvas")
+            Game.Get().CurrentCanvas.SetActive(false);
 	}
 	/// <summary>
 	/// if you want to go to other scene ,you must call the QRCodeDecodeController.StopWork(),otherwise,the application will crashed on Mobile .

@@ -8,7 +8,11 @@ public class ButtonScript : MonoBehaviour {
 
     public void Button()
     {
-        thisPage.active = false;
-        nextPage.active = true;
+        thisPage.SetActive(false);
+        nextPage.SetActive(true);
+        if (nextPage.tag == "MainCanvas")
+        {
+            Game.Get().CurrentCanvas = nextPage;
+        }
     }
 }

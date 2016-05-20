@@ -30,12 +30,34 @@ public class QRCodeDecodeController : MonoBehaviour
 	{
 		if (!e_DeviceController) {
 			e_DeviceController = GameObject.FindObjectOfType<DeviceCameraController>();
+            e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(false);
+//            StopWork();
+//		    StopCamera();
 			if(!e_DeviceController)
 			{
 				Debug.LogError("the Device Controller is not exsit,Please Drag DeviceCamera from project to Hierarchy");
 			}
 		}
 	}
+
+    public void StopCamera()
+    {
+        e_DeviceController.cameraTexture.Stop();
+        e_DeviceController.isPlaying = false;
+        e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(false);
+
+    }
+
+    public void StartCamera()
+    {
+        print("START");
+        e_DeviceController.cameraTexture.Play();
+        e_DeviceController.isPlaying = true;
+        e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);
+
+        
+    }
+
 	void Update()
 	{
 		if (!e_DeviceController.isPlaying  ) {

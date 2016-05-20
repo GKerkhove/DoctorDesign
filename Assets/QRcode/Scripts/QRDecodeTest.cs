@@ -15,6 +15,7 @@ public class QRDecodeTest : MonoBehaviour {
 	public GameObject scanLineObj;
 
     public GameObject NextButtonLogin;
+    public GameObject RetryQRButton;
 
 //    public GameObject MainCanvas;
 
@@ -26,6 +27,7 @@ public class QRDecodeTest : MonoBehaviour {
 		}
         startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
         startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);
+        RetryQRButton.GetComponent<Button>().onClick.AddListener(StartScan);
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,7 @@ public class QRDecodeTest : MonoBehaviour {
             {
                 if (data != null)
                 {
+                    RetryQRButton.SetActive(false);
                     e_qrController.StopCamera();
                     NextButtonLogin.SetActive(true);
                     Game.Get().User = data;
@@ -55,6 +58,10 @@ public class QRDecodeTest : MonoBehaviour {
                 else
                 {
                     print("bla123");
+                    UiText.text = "QR code incorrect.";
+                    RetryQRButton.SetActive(true);
+                    e_qrController.StopCamera();
+
 //                    e_qrController.StartCamera();
                 }
                 //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;

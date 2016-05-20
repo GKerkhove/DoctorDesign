@@ -72,6 +72,11 @@ public class DatabaseManager : MonoBehaviour
                 JSONNode n = JSON.Parse(data.text);
                 callback(Person.GetFromJSON(n));
             }
+            else
+            {
+                print("empty callback");
+                callback(null);
+            }
         }));
     }
 
@@ -89,6 +94,8 @@ public class DatabaseManager : MonoBehaviour
         else
         {
             Debug.Log("WWW Error: " + www.error);
+            yield return null;
+            callback(www);
         }
     }
 }

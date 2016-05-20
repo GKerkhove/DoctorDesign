@@ -158,7 +158,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Guido/Documents/DoctorDesign/user.keystore
+  AndroidKeystoreName: C:/Users/erep3/Documents/DoctorDesign/user.keystore
   AndroidKeyaliasName: alpha
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

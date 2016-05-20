@@ -21,7 +21,6 @@ public class QRCodeDecodeController : MonoBehaviour
 	bool decoding = false;
 	bool tempDecodeing = false;
 	string dataText = null;
-    public GameObject DeviceController = null;
 	public DeviceCameraController e_DeviceController = null;
 	private Color32[] orginalc;
 	private byte[] targetbyte;
@@ -29,18 +28,13 @@ public class QRCodeDecodeController : MonoBehaviour
 	int z = 0;
 	void Start()
 	{
-        if (!e_DeviceController)
-        {
-            e_DeviceController = FindObjectOfType<DeviceCameraController>();
-//            e_DeviceController.gameObject.SetActive(false);
-            DeviceController.SetActive(false);
-            print("DEVICE CONTROLLER STARTED");
-            if (!e_DeviceController)
-            {
-                print("WHOOPS NOT STARTED");
-                Debug.LogError("the Device Controller is not exsit,Please Drag DeviceCamera from project to Hierarchy");
-            }
-        }
+		if (!e_DeviceController) {
+			e_DeviceController = GameObject.FindObjectOfType<DeviceCameraController>();
+			if(!e_DeviceController)
+			{
+				Debug.LogError("the Device Controller is not exsit,Please Drag DeviceCamera from project to Hierarchy");
+			}
+		}
 	}
 	void Update()
 	{

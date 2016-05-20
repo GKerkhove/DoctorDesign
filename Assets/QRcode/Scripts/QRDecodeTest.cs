@@ -9,22 +9,18 @@ public class QRDecodeTest : MonoBehaviour {
 
 	public QRCodeDecodeController e_qrController;
 
-//	public Text UiText;
-	public GameObject StartQrBtn;
+	public Text UiText;
+	public GameObject resetBtn;
 	public GameObject scanLineObj;
-    public GameObject userCamera;
-//    public GameObject normalCamera;
-    public GameObject backgroundPanel;
-    public GameObject mainPanel;
+
+    public GameObject MainCanvas;
 
 	// Use this for initialization
 	void Start () {
 		if (e_qrController != null) {
-            e_qrController.e_QRScanFinished += qrScanFinished;
-//            e_qrController.StopWork();
-
+			e_qrController.e_QRScanFinished += qrScanFinished;
 		}
-        StartQrBtn.GetComponent<Button>().onClick.AddListener(StartQR);
+        resetBtn.GetComponent<Button>().onClick.AddListener(Reset);
 	}
 	
 	// Update is called once per frame
@@ -34,45 +30,48 @@ public class QRDecodeTest : MonoBehaviour {
 
 	void qrScanFinished(string dataText)
 	{
-	    print("Finished: " + dataText);
-//		UiText.text = dataText;
-		if (StartQrBtn != null) {
-			StartQrBtn.SetActive(true);
+        print(dataText);
+        MainCanvas.SetActive(true);
+
+		if (resetBtn != null) {
+			resetBtn.SetActive(true);
 		}
-//        normalCamera.SetActive(true);
-        userCamera.SetActive(false);
-        mainPanel.SetActive(true);
-        backgroundPanel.SetActive(false);
-        scanLineObj.SetActive(false);
+		
 		if(scanLineObj != null)
 		{
 			scanLineObj.SetActive(false);
 		}
 	}
 
-    /// <summary>
-    /// reset the QRScanner Controller 
-    /// </summary>
-    public void StartQR()
-    {
-//        e_qrController.StopWork();
-//        normalCamera.SetActive(false);
-        userCamera.SetActive(true);
-//        userCamera.transform.Find("CameraPlane").gameObject.SetActive(true);
-        StartQrBtn.SetActive(false);
-        backgroundPanel.SetActive(true);
-        mainPanel.SetActive(false);
-        scanLineObj.SetActive(true);
+	/// <summary>
+	/// reset the QRScanner Controller 
+	/// </summary>
+	public void Reset()
+	{
 
+		if (e_qrController != null) {
+			e_qrController.Reset();
+		}
 
-        e_qrController.Reset();
+//		if (UiText != null) {
+//			UiText.text = "";	
+//		}
+		
+//		if (resetBtn != null) {
+//			resetBtn.SetActive(false);
+//		}
+	    MainCanvas.SetActive(false);
+	    print("test");
 
-    }
-
-    /// <summary>
+		if(scanLineObj != null)
+		{
+			scanLineObj.SetActive(true);
+		}
+	}
+	/// <summary>
 	/// if you want to go to other scene ,you must call the QRCodeDecodeController.StopWork(),otherwise,the application will crashed on Mobile .
 	/// </summary>
-//	/// <param name="scenename">Scenename.</param>
+	/// <param name="scenename">Scenename.</param>
 	public void GotoNextScene(string scenename)
 	{
 		if (e_qrController != null) {

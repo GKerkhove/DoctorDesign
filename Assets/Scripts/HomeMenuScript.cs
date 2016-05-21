@@ -19,6 +19,11 @@ public class HomeMenuScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+//        Person p = new Person();
+//        p.FirstName = "Test naam";
+//        CurrentUser.AddPerson(p);
+//        p = CurrentUser.GetPerson();
+//        print(p.FirstName);
         StatusButton.onClick.AddListener(StatusClicked);
         MapButton.onClick.AddListener(MapClicked);
         AgendaButton.onClick.AddListener(AgendaClicked);

@@ -13,6 +13,10 @@ public class ButtonScript : MonoBehaviour {
         if (nextPage.tag == "MainCanvas")
         {
             Game.Get().CurrentCanvas = nextPage;
+            if (nextPage.name == "HomeCanvas")
+            {
+                CurrentUser.AddPerson(Game.Get().User);
+            }
         }
     }
 }

@@ -14,6 +14,9 @@ public class QRDecodeTest : MonoBehaviour {
     public GameObject startBtn2;
 	public GameObject scanLineObj;
 
+    public GameObject NextButtonLogin;
+    public GameObject RetryQRButton;
+
 //    public GameObject MainCanvas;
 
 	// Use this for initialization
@@ -24,6 +27,7 @@ public class QRDecodeTest : MonoBehaviour {
 		}
         startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
         startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);
+        RetryQRButton.GetComponent<Button>().onClick.AddListener(StartScan);
 	}
 	
 	// Update is called once per frame
@@ -34,17 +38,32 @@ public class QRDecodeTest : MonoBehaviour {
 	void qrScanFinished(string dataText)
 	{
         print(dataText);
-        Game.Get().CurrentCanvas.SetActive(true);
-        e_qrController.StopCamera();
-	    if (Game.Get().CurrentCanvas.tag == "MainCanvas")
+//        Game.Get().CurrentCanvas.SetActive(true);
+	    if (Game.Get().CurrentCanvas.name == "StartCanvas")
 	    {
 //	        UiText.text = dataText;
             DatabaseManager.Get().retrieveByEmail(dataText,data =>
             {
-                UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
-                              data.Email;
-                print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
-                              data.Email);
+                if (data != null)
+                {
+                    RetryQRButton.SetActive(false);
+                    e_qrController.StopCamera();
+                    NextButtonLogin.SetActive(true);
+                    Game.Get().User = data;
+                    UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                                  data.Email;
+                    print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                          data.Email);
+                }
+                else
+                {
+                    print("bla123");
+                    UiText.text = "QR code incorrect.";
+                    RetryQRButton.SetActive(true);
+                    e_qrController.StopCamera();
+
+//                    e_qrController.StartCamera();
+                }
                 //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
             });
 	    }

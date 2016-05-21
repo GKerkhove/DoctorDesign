@@ -70,6 +70,32 @@ public class DatabaseManager : MonoBehaviour
         }));
     }
 
+    public void uploadImage(Texture2D snap)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("image", System.Convert.ToBase64String(snap.EncodeToPNG()));
+        StartCoroutine(UploadPNG(snap, form, data =>
+        {
+            if (data.error == null)
+            {
+                Debug.Log(data.text);
+            }
+            else
+            {
+                Debug.Log(data.error);
+            }
+        }));
+           
+    }
+    IEnumerator UploadPNG(Texture2D snap, WWWForm form, System.Action<WWW> callback)
+    {
+        Debug.Log("Started the IE");
+
+        WWW w = new WWW("http://jimiverhoeven.nl:8080/uploadImage?user=DocterDesign", form);
+        yield return w;
+        callback(w);
+    }
+
     IEnumerator WaitForRequest(WWW www, System.Action<WWW> callback)
     {
         yield return www;

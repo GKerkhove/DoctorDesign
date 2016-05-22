@@ -25,7 +25,7 @@ public class SearchPeople : MonoBehaviour {
             Debug.Log(url);
             if (url != null)
             {
-                DatabaseManager.Get().searchUser(url, (data) =>
+                DatabaseManager.Get().SearchUser(url, (data) =>
                 {
                     Debug.Log(data[0]);
                 });

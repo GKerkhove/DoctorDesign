@@ -859,7 +859,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 198, y: -418}
-  m_SizeDelta: {x: 146.30687, y: 96.51413}
+  m_SizeDelta: {x: 148.97986, y: 97.11409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &168189084
 GameObject:
@@ -1906,15 +1906,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 333524498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c087500dfee7bf4db908252414fcd9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 01483ada2035c5d41b84ac872b23714c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusButton: {fileID: 1467598927}
-  MapButton: {fileID: 0}
-  AgendaButton: {fileID: 2058141651}
-  StatusPanel: {fileID: 0}
-  MapPanel: {fileID: 0}
-  AgendaPanel: {fileID: 0}
+  gegevensButton: {fileID: 1467598927}
+  aantekeningenButton: {fileID: 2058141651}
+  gegevensPanel: {fileID: 996367279}
+  aantekeningenPanel: {fileID: 328216915}
   Selector: {fileID: 822836535}
 --- !u!114 &333524500
 MonoBehaviour:
@@ -8112,7 +8110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 84.30687, y: 46.514133}
+  m_SizeDelta: {x: 86.979866, y: 47.114094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662540398
 MonoBehaviour:
@@ -10502,7 +10500,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 4.1642}
+  m_SizeDelta: {x: 0, y: 3.3691273}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2106576602
 MonoBehaviour:

@@ -30,6 +30,13 @@ public class HomeMenuScript : MonoBehaviour {
         StatusSelector = new Vector3(-150f, -80.8f, 0);
         MapSelector = new Vector3(0f, -80.8f, 0);
         AgendaSelector = new Vector3(150f, -80.8f, 0);
+        Game.Get().userScanned += UserScanned;
+    }
+
+    void UserScanned(Person p)
+    {
+        print("waaaaa");
+        DatabaseManager.Get().CreateConnection(Game.Get().User.Email, p.Email, "");
     }
 	
     void StatusClicked()

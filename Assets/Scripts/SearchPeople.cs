@@ -7,8 +7,17 @@ public class SearchPeople : MonoBehaviour {
     public InputField input;
     string[] list = null;
     string url = null;
+    public GameObject Button_Template;
+    private List<string> NameList = new List<string>();
+    public GameObject ToAddTo;
     void LockInput(InputField input)
     {
+        print("test");
+        foreach (Transform child in ToAddTo.transform)
+        {
+            Destroy(child.gameObject);
+            NameList.Clear();
+        }
         if (input.text.Length > 0)
         {
             if(input.text.Contains(" "))
@@ -27,7 +36,24 @@ public class SearchPeople : MonoBehaviour {
             {
                 DatabaseManager.Get().SearchUser(url, (data) =>
                 {
-                    Debug.Log(data[0]);
+
+                    foreach (Person p in data)
+                    {
+                        print(p.FirstName + p.LastName);
+                        NameList.Add("" + p.FirstName + " " + p.LastName);
+
+                    }
+                    foreach (string str in NameList)
+                    {
+                        GameObject go = Instantiate(Button_Template) as GameObject;
+                        go.SetActive(true);
+                        Tutorial_Button TB = go.GetComponent<Tutorial_Button>();
+                        TB.SetName(str);
+                        go.transform.SetParent(ToAddTo.transform);
+                        go.transform.localScale = new Vector3(1, 1, 1);
+                        go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y, 1);
+
+                    }
                 });
             }
         }

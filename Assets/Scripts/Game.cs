@@ -56,8 +56,9 @@ public class Game : MonoBehaviour {
         ExitPanel.transform.SetParent(go.transform);
         ExitPanel.transform.localPosition = new Vector3(0, 0, 0);
         ExitPanel.transform.localScale = new Vector3(1,1,1);
-        ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-        ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+        ExitPanel.transform.Find("Exit").Find("Button Layer").GetComponent<Button>().onClick.AddListener(ExitClick);
+        ExitPanel.transform.Find("Close").Find("Button Layer").GetComponent<Button>().onClick.AddListener(CloseClick);
+        //ExitPanel.SetActive(false);
 	}
 
     void ExitClick()
@@ -88,11 +89,11 @@ public class Game : MonoBehaviour {
                 ExitPanel.transform.SetParent(gameObject.transform);
                 ExitPanel.transform.position = new Vector3(0, 0, 0);
                 ExitPanel.SetActive(true);
-                ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-                ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+                ExitPanel.transform.Find("Exit").Find("Button Layer").GetComponent<Button>().onClick.AddListener(ExitClick);
+                ExitPanel.transform.Find("Close").Find("Button Layer").GetComponent<Button>().onClick.AddListener(CloseClick);
             }
-            ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-            ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+            ExitPanel.transform.Find("Exit").Find("Button Layer").GetComponent<Button>().onClick.AddListener(ExitClick);
+            ExitPanel.transform.Find("Close").Find("Button Layer").GetComponent<Button>().onClick.AddListener(CloseClick);
             ExitPanel.SetActive(!ExitPanel.activeSelf);
             if (qrController.e_DeviceController.cameraTexture.isPlaying)
             {

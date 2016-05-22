@@ -31,8 +31,8 @@ public class DatabaseManager : MonoBehaviour
         {
             if (data.error == null)
             {
-                string[] text = data.text.Split(new [] {",ProfileImage"}, StringSplitOptions.None);
-                JSONNode n = JSON.Parse(text[0]);
+                //string[] text = data.text.Split(new [] {",ProfileImage"}, StringSplitOptions.None);
+                JSONNode n = JSON.Parse(data.text);
                 for (int i = 0; i < n.Count; i++)
                 {
                     persons.Add(Person.GetFromJSON(n[i]));

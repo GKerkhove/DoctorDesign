@@ -32,7 +32,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22449358}
   m_Layer: 5
-  m_Name: Button - Sluiten
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22458572}
   m_Layer: 5
-  m_Name: Button - Terug
+  m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,7 +294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &183298
 GameObject:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ public class Tutorial_Button : MonoBehaviour {
 
 	private string Name;
 	public Text ButtonText;
-	public Tutorial_ScrollView ScrollView;
+	public Tutorial_ScrollView sc;
 
 	public void SetName(string name)
 	{
@@ -15,7 +15,7 @@ public class Tutorial_Button : MonoBehaviour {
 	}
 	public void Button_Click()
 	{
-		ScrollView.ButtonClicked(Name);
+		sc.ButtonClicked(Name);
 
 	}
 }

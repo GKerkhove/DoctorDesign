@@ -379,9 +379,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   e_qrController: {fileID: 909639126}
   UiText: {fileID: 1392666582}
-  startBtn: {fileID: 0}
-  startBtn2: {fileID: 0}
+  resetBtn: {fileID: 1281641837}
   scanLineObj: {fileID: 560426645}
+  MainCanvas: {fileID: 0}
 --- !u!1001 &266892248
 Prefab:
   m_ObjectHideFlags: 0

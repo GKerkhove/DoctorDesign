@@ -10,7 +10,17 @@ public class Tutorial_ScrollView : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+        DatabaseManager.Get().retrieveAll(data =>
+        {
+            print(data[0].FirstName);
+            //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
+        });
+	    
+        foreach
+	    {
+	        
+	    }
 		NameList.Add("Alan");
 		NameList.Add("Amy");
 		NameList.Add("Brian");
@@ -34,8 +44,8 @@ public class Tutorial_ScrollView : MonoBehaviour {
 
 
 	}
-	
-	public void ButtonClicked(string str)
+
+    public void ButtonClicked(string str)
 	{
 		Debug.Log(str + " button clicked.");
 

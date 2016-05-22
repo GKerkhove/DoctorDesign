@@ -13,13 +13,14 @@ public class Tutorial_ScrollView : MonoBehaviour {
 
        DatabaseManager.Get().retrieveAll(data =>
         {
+            
             foreach(Person p in data)
             {
                 print(p.FirstName + p.LastName);
                 NameList.Add("" + p.FirstName + " " + p.LastName);
                 
             }
-           foreach (string str in NameList)
+          foreach (string str in NameList)
             {
                 GameObject go = Instantiate(Button_Template) as GameObject;
                 go.SetActive(true);

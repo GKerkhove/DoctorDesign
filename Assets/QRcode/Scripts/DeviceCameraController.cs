@@ -27,6 +27,7 @@ public class DeviceCameraController : MonoBehaviour {
 		get{
 			return isPlay;
 		}
+	    set { isPlay = value; }
 	}
 	// Use this for initialization  
 	void Awake()  
@@ -67,8 +68,8 @@ public class DeviceCameraController : MonoBehaviour {
 			#elif UNITY_ANDROID
 			cameraTexture = new WebCamTexture();  
 			#endif
-			cameraTexture.Play();
-			isPlay = true;  
+//			cameraTexture.Play();
+//			isPlay = true;  
 		}  
 	}
 

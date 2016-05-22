@@ -10,17 +10,24 @@ public class QRDecodeTest : MonoBehaviour {
 	public QRCodeDecodeController e_qrController;
 
 	public Text UiText;
-	public GameObject resetBtn;
+    public GameObject startBtn;
+    public GameObject startBtn2;
 	public GameObject scanLineObj;
 
-    public GameObject MainCanvas;
+    public GameObject NextButtonLogin;
+    public GameObject RetryQRButton;
+
+//    public GameObject MainCanvas;
 
 	// Use this for initialization
 	void Start () {
 		if (e_qrController != null) {
 			e_qrController.e_QRScanFinished += qrScanFinished;
+		    Game.Get().qrController = e_qrController;
 		}
-        resetBtn.GetComponent<Button>().onClick.AddListener(Reset);
+        startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
+        startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);
+        RetryQRButton.GetComponent<Button>().onClick.AddListener(StartScan);
 	}
 	
 	// Update is called once per frame
@@ -31,27 +38,47 @@ public class QRDecodeTest : MonoBehaviour {
 	void qrScanFinished(string dataText)
 	{
         print(dataText);
-        MainCanvas.SetActive(true);
+//        Game.Get().CurrentCanvas.SetActive(true);
+	    if (Game.Get().CurrentCanvas.name == "StartCanvas")
+	    {
+//	        UiText.text = dataText;
+            DatabaseManager.Get().retrieveByEmail(dataText,data =>
+            {
+                if (data != null)
+                {
+                    RetryQRButton.SetActive(false);
+                    e_qrController.StopCamera();
+                    NextButtonLogin.SetActive(true);
+                    Game.Get().User = data;
+                    UiText.text = "U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                                  data.Email;
+                    print("U bent ingelogd als " + data.FirstName + " " + data.LastName + " op het email " +
+                          data.Email);
+                }
+                else
+                {
+                    print("bla123");
+                    UiText.text = "QR code incorrect.";
+                    RetryQRButton.SetActive(true);
+                    e_qrController.StopCamera();
 
-		if (resetBtn != null) {
-			resetBtn.SetActive(true);
-		}
-		
-		if(scanLineObj != null)
-		{
-			scanLineObj.SetActive(false);
-		}
+//                    e_qrController.StartCamera();
+                }
+                //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
+            });
+	    }
 	}
 
 	/// <summary>
 	/// reset the QRScanner Controller 
 	/// </summary>
-	public void Reset()
+	public void StartScan()
 	{
 
 		if (e_qrController != null) {
 			e_qrController.Reset();
 		}
+        e_qrController.StartCamera();
 
 //		if (UiText != null) {
 //			UiText.text = "";	
@@ -60,13 +87,8 @@ public class QRDecodeTest : MonoBehaviour {
 //		if (resetBtn != null) {
 //			resetBtn.SetActive(false);
 //		}
-	    MainCanvas.SetActive(false);
-	    print("test");
-
-		if(scanLineObj != null)
-		{
-			scanLineObj.SetActive(true);
-		}
+        if(Game.Get().CurrentCanvas.name != "StartCanvas")
+            Game.Get().CurrentCanvas.SetActive(false);
 	}
 	/// <summary>
 	/// if you want to go to other scene ,you must call the QRCodeDecodeController.StopWork(),otherwise,the application will crashed on Mobile .

@@ -1,7 +1,0 @@
--- WEB API KIT --
-
-ONLINE DOCUMENTATION
-http://www.unity3dassets.com/r/docs/wak
-
-VIDEO TUTORIALS
-http://unity3dassets.com/r/wak/core/documentation/

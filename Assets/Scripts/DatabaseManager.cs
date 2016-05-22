@@ -18,7 +18,24 @@ public class DatabaseManager : MonoBehaviour
         return instance;
     }
 
+    public void searchUser(string url, System.Action<List<Person>> callback)
+    {
+        WWW www = new WWW(url);
+        List<Person> persons = new List<Person>();
 
+        StartCoroutine(WaitForRequest(www, data =>
+        {
+            if (data.error == null)
+            {
+                JSONNode n = JSON.Parse(data.text);
+                for (int i = 0; i < n.Count; i++)
+                {
+                    persons.Add(Person.GetFromJSON(n[i]));
+                }
+                callback(persons);
+            }
+        })); 
+    }
 
     public void retrieveAll(System.Action<List<Person>> callback)
     {
@@ -36,6 +53,11 @@ public class DatabaseManager : MonoBehaviour
                 }
                 callback(persons);
             }
+            else
+            {
+                print("empty callback");
+                callback(null);
+            }
         }));
     }
 
@@ -48,18 +70,41 @@ public class DatabaseManager : MonoBehaviour
             if (data.error == null)
             {
                 JSONNode n = JSON.Parse(data.text);
-                callback(Person.GetFromJSON(n[0]));
+                callback(Person.GetFromJSON(n));
+            }
+            else
+            {
+                print("empty callback");
+                callback(null);
             }
         }));
     }
 
-//    IEnumerator Start(string url)
-//    {
-//        WWW www = new WWW(url);
-//        yield return www;
-////        Renderer renderer = GetComponent<Renderer>();
-////        renderer.material.mainTexture = www.texture;
-//    }
+    public void uploadImage(Texture2D snap)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("image", System.Convert.ToBase64String(snap.EncodeToPNG()));
+        StartCoroutine(UploadPNG(snap, form, data =>
+        {
+            if (data.error == null)
+            {
+                Debug.Log(data.text);
+            }
+            else
+            {
+                Debug.Log(data.error);
+            }
+        }));
+           
+    }
+    IEnumerator UploadPNG(Texture2D snap, WWWForm form, System.Action<WWW> callback)
+    {
+        Debug.Log("Started the IE");
+
+        WWW w = new WWW("http://jimiverhoeven.nl:8080/uploadImage?user=DocterDesign", form);
+        yield return w;
+        callback(w);
+    }
 
     IEnumerator WaitForRequest(WWW www, System.Action<WWW> callback)
     {
@@ -75,6 +120,8 @@ public class DatabaseManager : MonoBehaviour
         else
         {
             Debug.Log("WWW Error: " + www.error);
+            yield return null;
+            callback(www);
         }
     }
 }

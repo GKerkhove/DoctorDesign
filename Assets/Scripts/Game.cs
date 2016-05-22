@@ -4,9 +4,31 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour {
 
     public GameObject ExitPanel;
+    public GameObject CurrentCanvas;
+    public GameObject HomeCanvas;
+    private static Game _instance;
+    public QRCodeDecodeController qrController;
+    public Person User;
+
+    private bool CameraShown = false;
+
+    public static Game Get()
+    {
+        return _instance;
+    }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+        print(Application.persistentDataPath);
+	    if (CurrentUser.HasPerson())
+	    {
+	        CurrentCanvas.SetActive(false);
+	        CurrentCanvas = HomeCanvas;
+            CurrentCanvas.SetActive(true);
+	        User = CurrentUser.GetPerson();
+	    }
+	    _instance = this;
         DontDestroyOnLoad(gameObject);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
         GameObject go = GameObject.FindGameObjectWithTag("MainCanvas");
@@ -29,6 +51,8 @@ public class Game : MonoBehaviour {
     void CloseClick()
     {
         ExitPanel.SetActive(false);
+        qrController.StartCamera();
+        CameraShown = false;
     }
 	
 	// Update is called once per frame
@@ -47,6 +71,11 @@ public class Game : MonoBehaviour {
             ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
             ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
             ExitPanel.SetActive(!ExitPanel.activeSelf);
+            if (qrController.e_DeviceController.cameraTexture.isPlaying)
+            {
+                qrController.StopCamera();
+                CameraShown = true;
+            }
         }
 	}
 }

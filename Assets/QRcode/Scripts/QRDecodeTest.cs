@@ -24,6 +24,16 @@ public class QRDecodeTest : MonoBehaviour {
 		if (e_qrController != null) {
 			e_qrController.e_QRScanFinished += qrScanFinished;
 		    Game.Get().qrController = e_qrController;
+		    if (Game.Get().DEBUG)
+		    {
+		        NextButtonLogin.SetActive(true);
+                DatabaseManager.Get().retrieveByEmail("jann@info.nl",data =>
+                {
+                    Game.Get().User = data;
+
+                    //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
+                });
+		    }
 		}
         startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
         startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);

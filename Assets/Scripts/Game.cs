@@ -9,7 +9,7 @@ public class Game : MonoBehaviour {
     private static Game _instance;
     public QRCodeDecodeController qrController;
     public Person User;
-    public readonly bool DEBUG = false;
+    public readonly bool DEBUG = true;
 
     private bool CameraShown = false;
 

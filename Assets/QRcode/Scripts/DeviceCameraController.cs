@@ -18,7 +18,7 @@ public class DeviceCameraController : MonoBehaviour {
 
 	private bool isPlay = false;
 	//public CameraMode e_CameraMode;
-	GameObject e_CameraPlaneObj;
+	public GameObject e_CameraPlaneObj;
 	int matIndex = 0;
 
 	ScreenOrientation orientation;

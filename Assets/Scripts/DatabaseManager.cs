@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
@@ -18,7 +19,10 @@ public class DatabaseManager : MonoBehaviour
         return instance;
     }
 
-    public void searchUser(string url, System.Action<List<Person>> callback)
+
+
+
+    public void SearchUser(string url, System.Action<List<Person>> callback)
     {
         WWW www = new WWW(url);
         List<Person> persons = new List<Person>();
@@ -104,6 +108,36 @@ public class DatabaseManager : MonoBehaviour
         Debug.Log("Started the IE");
 
         WWW w = new WWW("http://jimiverhoeven.nl:8080/uploadImage?user=DocterDesign", form);
+        yield return w;
+        callback(w);
+    }
+
+    public void CreateConnection(string email1, string email2, string notes)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("from", email1);
+        form.AddField("to", email2);
+        form.AddField("time", DateTime.Now.ToString("h:mm:ss tt"));
+        form.AddField("notities", notes);
+        StartCoroutine(MakeConnection(form, data =>
+        {
+            if (data.error == null)
+            {
+                Debug.Log("Blablabla1123");
+                Debug.Log(data.text);
+            }
+            else
+            {
+                Debug.Log("WOLLLLLLLAAAA&%&%&%&");
+                Debug.Log(data.error);
+            }
+        }));
+    }
+    IEnumerator MakeConnection(WWWForm form, System.Action<WWW> callback)
+    {
+        Debug.Log("Started the IE");
+
+        WWW w = new WWW("http://jimiverhoeven.nl:8080/addConnection?user=DocterDesign", form);
         yield return w;
         callback(w);
     }

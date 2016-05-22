@@ -25,8 +25,9 @@ public class TakeProfilePicture : MonoBehaviour {
         snap.Apply();
         if (snap != null)
         {
+			string email = Game.Get().User.Email;
             Debug.Log(snap);
-            DatabaseManager.Get().uploadImage(snap);
+            DatabaseManager.Get().uploadImage(snap, email);
         }
         takePhoto.gameObject.SetActive(false);
         Game.Get().qrController.StopCamera();

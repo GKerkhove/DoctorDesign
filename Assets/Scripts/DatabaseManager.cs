@@ -80,10 +80,11 @@ public class DatabaseManager : MonoBehaviour
         }));
     }
 
-    public void uploadImage(Texture2D snap)
+	public void uploadImage(Texture2D snap, string email)
     {
         WWWForm form = new WWWForm();
         form.AddField("image", System.Convert.ToBase64String(snap.EncodeToPNG()));
+		form.AddField ("email", email);
         StartCoroutine(UploadPNG(snap, form, data =>
         {
             if (data.error == null)

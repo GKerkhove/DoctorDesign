@@ -22,7 +22,10 @@ public class Game : MonoBehaviour {
         return _instance;
     }
 
-    
+    void Awake()
+    {
+        _instance = this;
+    }
 
 	// Use this for initialization
 	void Start ()
@@ -43,7 +46,6 @@ public class Game : MonoBehaviour {
 	            User = CurrentUser.GetPerson();
 	        }
 	    }
-	    _instance = this;
         DontDestroyOnLoad(gameObject);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
         GameObject go = GameObject.FindGameObjectWithTag("MainCanvas");
@@ -66,7 +68,8 @@ public class Game : MonoBehaviour {
     void CloseClick()
     {
         ExitPanel.SetActive(false);
-        qrController.StartCamera();
+        if(CameraShown)
+            qrController.StartCamera();
         CameraShown = false;
     }
 

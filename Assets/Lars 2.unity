@@ -1352,12 +1352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   e_qrController: {fileID: 119215640}
-  UiText: {fileID: 0}
+  UiText: {fileID: 396198031}
   startBtn: {fileID: 1494339029}
   startBtn2: {fileID: 1421988347}
   scanLineObj: {fileID: 903246961}
-  NextButtonLogin: {fileID: 0}
-  RetryQRButton: {fileID: 0}
+  NextButtonLogin: {fileID: 374008168}
+  RetryQRButton: {fileID: 2109443772}
 --- !u!114 &119215640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2651,8 +2651,8 @@ Canvas:
   m_GameObject: {fileID: 332737213}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1192600473}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2831,7 +2831,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 48.926174, y: 19.932886}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365092528
 MonoBehaviour:
@@ -4821,6 +4821,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 662637209}
   - 114: {fileID: 662637208}
+  - 114: {fileID: 662637210}
   m_Layer: 0
   m_Name: _Scripts
   m_TagString: Untagged
@@ -4841,7 +4842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExitPanel: {fileID: 0}
   CurrentCanvas: {fileID: 2095746643}
-  HomeCanvas: {fileID: 0}
+  HomeCanvas: {fileID: 332737213}
   qrController: {fileID: 0}
   User:
     Email: 
@@ -4863,6 +4864,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &662637210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 662637207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed774f4556760424d9f6257263b38931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &683912142
 GameObject:
   m_ObjectHideFlags: 0
@@ -8019,14 +8031,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1009136851}
-  - 114: {fileID: 1009136852}
   m_Layer: 5
   m_Name: Opnieuw Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1009136851
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8044,21 +8055,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -119, y: -357.97}
-  m_SizeDelta: {x: 131.78998, y: 70.937}
+  m_SizeDelta: {x: 125.9594, y: 70.101524}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1009136852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1009136850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76911657eeb76854facb6dea9fa1ef2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisPage: {fileID: 32993343}
-  nextPage: {fileID: 171526607}
 --- !u!1 &1027970310
 GameObject:
   m_ObjectHideFlags: 0
@@ -11852,7 +11850,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 69.789986, y: 20.936996}
+  m_SizeDelta: {x: 63.959393, y: 20.101524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541308639
 MonoBehaviour:
@@ -13534,7 +13532,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000009536774, y: -397.08002}
-  m_SizeDelta: {x: 115.77593, y: 71.908714}
+  m_SizeDelta: {x: 111.3401, y: 70.101524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1878839890
 MonoBehaviour:
@@ -14477,7 +14475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2004818750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14603,7 +14601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2095746644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15167,7 +15165,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1009136852}
+      - m_Target: {fileID: 0}
         m_MethodName: Button
         m_Mode: 1
         m_Arguments:

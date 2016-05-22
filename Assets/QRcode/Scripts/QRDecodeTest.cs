@@ -23,6 +23,9 @@ public class QRDecodeTest : MonoBehaviour {
 	void Start () {
 		if (e_qrController != null) {
 			e_qrController.e_QRScanFinished += qrScanFinished;
+		    Game.Get();
+            print(Game.Get());
+            print(e_qrController);
 		    Game.Get().qrController = e_qrController;
 		    if (Game.Get().DEBUG)
 		    {
@@ -38,6 +41,10 @@ public class QRDecodeTest : MonoBehaviour {
         startBtn.GetComponent<Button>().onClick.AddListener(StartScan);
         startBtn2.GetComponent<Button>().onClick.AddListener(StartScan);
         RetryQRButton.GetComponent<Button>().onClick.AddListener(StartScan);
+        print(RetryQRButton);
+        //RetryQRButton.GetComponent<Button>().onClick.AddListener(StartScan);
+        RetryQRButton.SetActive(false);
+        RetryQRButton.transform.parent.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -118,8 +125,9 @@ public class QRDecodeTest : MonoBehaviour {
 	    if (Game.Get().CurrentCanvas.name != "StartCanvas")
 	    {
 	        Transform temp = Game.Get().qrController.e_DeviceController.e_CameraPlaneObj.transform;
-	        temp.localPosition = new Vector3(temp.transform.localPosition.x, -1.4f, temp.transform.localPosition.z);
-	    }
+            temp.localPosition = new Vector3(temp.transform.localPosition.x, -1.83f, temp.transform.localPosition.z);
+            temp.localScale = new Vector3(0.4382933f, temp.localScale.y, temp.localScale.z);
+        }
 	}
 	/// <summary>
 	/// if you want to go to other scene ,you must call the QRCodeDecodeController.StopWork(),otherwise,the application will crashed on Mobile .

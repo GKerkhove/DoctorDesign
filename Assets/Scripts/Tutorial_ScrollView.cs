@@ -17,10 +17,10 @@ public class Tutorial_ScrollView : MonoBehaviour {
             //	        Panel1.transform.Find("Name").GetComponent<Text>().text = data[0].FirstName;
         });
 	    
-        foreach
-	    {
+        //foreach
+        //{
 	        
-	    }
+        //}
 		NameList.Add("Alan");
 		NameList.Add("Amy");
 		NameList.Add("Brian");

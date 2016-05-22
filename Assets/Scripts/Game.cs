@@ -9,6 +9,7 @@ public class Game : MonoBehaviour {
     private static Game _instance;
     public QRCodeDecodeController qrController;
     public Person User;
+    public readonly bool DEBUG = true;
 
     private bool CameraShown = false;
 
@@ -23,10 +24,13 @@ public class Game : MonoBehaviour {
         print(Application.persistentDataPath);
 	    if (CurrentUser.HasPerson())
 	    {
-	        CurrentCanvas.SetActive(false);
-	        CurrentCanvas = HomeCanvas;
-            CurrentCanvas.SetActive(true);
-	        User = CurrentUser.GetPerson();
+	        if (!DEBUG)
+	        {
+	            CurrentCanvas.SetActive(false);
+	            CurrentCanvas = HomeCanvas;
+	            CurrentCanvas.SetActive(true);
+	            User = CurrentUser.GetPerson();
+	        }
 	    }
 	    _instance = this;
         DontDestroyOnLoad(gameObject);

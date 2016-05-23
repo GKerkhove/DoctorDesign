@@ -39,6 +39,7 @@ public class PinchZoom : MonoBehaviour
                 startposition = zoomableImage.position;
                 startZ = zoomableImage.position.z;
                 middle = (touchZero.position + ((touchOne.position - touchZero.position) * 0.5f));
+
                 anchordistance = startposition - middle;
             }
             // Store both touches.
@@ -48,10 +49,9 @@ public class PinchZoom : MonoBehaviour
             float tempActualZoom  = CurrentZoom * (newdistance / startdistance);
             if (tempActualZoom > 0.5 && tempActualZoom < 4) {
                 ActualZoom = tempActualZoom;
-                Vector3 newPosition = middle + anchordistance * (newdistance / startdistance);
-                newPosition.z = startZ;
-                zoomableImage.position = newPosition;
-                
+                //Vector3 newPosition = middle + anchordistance * (newdistance / startdistance);
+                //newPosition.z = startZ;
+                //zoomableImage.position = newPosition;
                 zoomableImage.sizeDelta = startSize * ActualZoom;
             }
         }

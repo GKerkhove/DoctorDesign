@@ -5767,12 +5767,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 992873153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1268b778a9624584fafd84ab7886f9fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8c2eb0e1326554d86f170b71c5db18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPhoto: {fileID: 423012339}
   takePhoto: {fileID: 1687121343}
-  profilePicture: {fileID: 1129866158}
+  profilePicture: {fileID: 0}
 --- !u!114 &992873156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9678,6 +9678,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1839469545}
   - 114: {fileID: 1839469544}
+  - 114: {fileID: 1839469546}
   m_Layer: 0
   m_Name: _Scripts
   m_TagString: Untagged
@@ -9698,7 +9699,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExitPanel: {fileID: 0}
   CurrentCanvas: {fileID: 785382412}
+  HomeCanvas: {fileID: 0}
   qrController: {fileID: 0}
+  User:
+    Email: 
+    Linkedin: 
+    YoutubeLink: 
+    FirstName: 
+    LastName: 
+    CompanyName: 
+    JobFunction: 
 --- !u!4 &1839469545
 Transform:
   m_ObjectHideFlags: 0
@@ -9711,6 +9721,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1839469546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839469543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed774f4556760424d9f6257263b38931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844101923
 GameObject:
   m_ObjectHideFlags: 0
@@ -10314,6 +10335,8 @@ MonoBehaviour:
   startBtn: {fileID: 875697792}
   startBtn2: {fileID: 277166411}
   scanLineObj: {fileID: 1646119252}
+  NextButtonLogin: {fileID: 875697792}
+  RetryQRButton: {fileID: 875697792}
 --- !u!114 &1935199977
 MonoBehaviour:
   m_ObjectHideFlags: 0

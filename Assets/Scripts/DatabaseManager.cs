@@ -19,9 +19,6 @@ public class DatabaseManager : MonoBehaviour
         return instance;
     }
 
-
-
-
     public void SearchUser(string url, System.Action<List<Person>> callback)
     {
         WWW www = new WWW(url);
@@ -57,6 +54,30 @@ public class DatabaseManager : MonoBehaviour
                     persons.Add(Person.GetFromJSON(n[i]));
                 }
                 callback(persons);
+            }
+            else
+            {
+                print("empty callback");
+                callback(null);
+            }
+        }));
+    }
+
+    public void retrieveConnections(string email,System.Action<List<string>> callback)
+    {
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/connectionsByYou/"+email+"?user=DocterDesign");
+        List<string> emails = new List<string>();
+
+        StartCoroutine(WaitForRequest(www, data =>
+        {
+            if (data.error == null)
+            {
+                JSONNode n = JSON.Parse(data.text);
+                for (int i = 0; i < n.Count; i++)
+                {
+                    emails.Add(n[i]["To_email"]);
+                }
+                callback(emails);
             }
             else
             {

@@ -20,6 +20,7 @@ public class SearchPeople : MonoBehaviour {
         }
         if (input.text.Length > 0)
         {
+            input.text = input.text.ToLower();
             if(input.text.Contains(" "))
             {
                 list = input.text.Split(null);

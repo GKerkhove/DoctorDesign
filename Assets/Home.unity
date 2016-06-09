@@ -4273,7 +4273,7 @@ GameObject:
   - 222: {fileID: 509004543}
   - 114: {fileID: 509004542}
   m_Layer: 5
-  m_Name: Bed
+  m_Name: Bob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4317,7 +4317,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 54fc6ddef1814e24bb482324974288c7, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -5313,9 +5313,14 @@ MonoBehaviour:
   MapButton: {fileID: 1058443832}
   AgendaButton: {fileID: 1194723095}
   StatusPanel: {fileID: 10387014}
-  MapPanel: {fileID: 0}
+  MapPanel: {fileID: 1033021097}
   AgendaPanel: {fileID: 1715094452}
   Selector: {fileID: 1806097518}
+  Bobs:
+  - {fileID: 21300000, guid: 54fc6ddef1814e24bb482324974288c7, type: 3}
+  - {fileID: 21300000, guid: 456b7847b1fb8624d9163cc68387742a, type: 3}
+  - {fileID: 21300000, guid: 60dd1750cec39f945a10b8cedefa3c58, type: 3}
+  Bob: {fileID: 509004542}
 --- !u!114 &658182321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6424,8 +6429,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -148}
-  m_SizeDelta: {x: 0, y: 80}
+  m_AnchoredPosition: {x: -50, y: -148}
+  m_SizeDelta: {x: 100, y: 130}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &908485542
 MonoBehaviour:
@@ -6739,7 +6744,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50.738255, y: 19.32886}
+  m_SizeDelta: {x: 48.844223, y: 19.899498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930364157
 MonoBehaviour:
@@ -6986,7 +6991,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -470}
-  m_SizeDelta: {x: 215.26733, y: 79.70297}
+  m_SizeDelta: {x: 206.72362, y: 77.13568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &981980673
 GameObject:
@@ -7208,12 +7213,14 @@ MonoBehaviour:
   qrController: {fileID: 0}
   User:
     Email: 
-    Linkedin: 
-    YoutubeLink: 
     FirstName: 
     LastName: 
     CompanyName: 
     JobFunction: 
+    Picture: {fileID: 0}
+  MainDialog: {fileID: 0}
+  BobState: 0
+  StandardPerson: {fileID: 21300000, guid: 50fc89b2f649ab544a918a11530d0737, type: 3}
 --- !u!4 &995536174
 Transform:
   m_ObjectHideFlags: 0
@@ -7257,8 +7264,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 169, y: -34}
-  m_SizeDelta: {x: -169, y: 32}
+  m_AnchoredPosition: {x: 151, y: 0}
+  m_SizeDelta: {x: -88, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1009379799
 MonoBehaviour:
@@ -7315,7 +7322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1033021098
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7873,10 +7880,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: fbe3c09b43ce4304e86e7496c81bb9ed, type: 3}
-    m_FontSize: 14
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -7884,7 +7891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: OK
+  m_Text: "Ok\xE9"
 --- !u!222 &1082811227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9242,13 +9249,14 @@ GameObject:
   m_Component:
   - 224: {fileID: 1299029109}
   - 114: {fileID: 1299029110}
+  - 114: {fileID: 1299029111}
   m_Layer: 5
   m_Name: Dialog Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1299029109
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9284,6 +9292,22 @@ MonoBehaviour:
   canClickBackgroundToCancel: 1
   animationDuration: 1
   backgroundTransform: {fileID: 573652360}
+--- !u!114 &1299029111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1299029108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b4d44cbd235f5428b537838e2e4771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: {fileID: 183449029}
+  SubTitle: {fileID: 1009379799}
+  Info: {fileID: 908485542}
+  Picture: {fileID: 1327209690}
+  Btn: {fileID: 1423143169}
 --- !u!1 &1327209688
 GameObject:
   m_ObjectHideFlags: 0
@@ -11945,7 +11969,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000009536774, y: -397.08002}
-  m_SizeDelta: {x: 112.209206, y: 68.07532}
+  m_SizeDelta: {x: 110.84422, y: 69.8995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715981752
 MonoBehaviour:

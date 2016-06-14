@@ -17,6 +17,7 @@ public class Game : MonoBehaviour {
     public delegate void UserScanned(Person p);
     public event UserScanned userScanned;
     public Sprite StandardPerson;
+    public SearchPeople SearchScript;
 
     private bool CameraShown = false;
 
@@ -43,27 +44,21 @@ public class Game : MonoBehaviour {
     void Awake()
     {
         _instance = this;
+        if (CurrentUser.HasPerson())
+        {
+            if (!DEBUG)
+            {
+                CurrentCanvas.SetActive(false);
+                CurrentCanvas = HomeCanvas;
+                CurrentCanvas.SetActive(true);
+                User = CurrentUser.GetPerson();
+            }
+        }
     }
 
 	// Use this for initialization
 	void Start ()
 	{
-
-        //if (_userScanned == null)
-        //    _userScanned = new UnityEvent();
-
-
-        print(Application.persistentDataPath);
-	    if (CurrentUser.HasPerson())
-	    {
-	        if (!DEBUG)
-	        {
-	            CurrentCanvas.SetActive(false);
-	            CurrentCanvas = HomeCanvas;
-	            CurrentCanvas.SetActive(true);
-	            User = CurrentUser.GetPerson();
-	        }
-	    }
         DontDestroyOnLoad(gameObject);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
         GameObject go = GameObject.FindGameObjectWithTag("MainCanvas");

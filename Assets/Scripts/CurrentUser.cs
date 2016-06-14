@@ -21,6 +21,7 @@ class CurrentUser
         try
         {
             JSONNode p = JSONNode.LoadFromCompressedFile(Path);
+            Debug.Log(p["FirstName"] + " " + p["LastName"]);
             return Person.GetFromJSON(p);
         }
         catch (Exception e)

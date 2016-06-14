@@ -65,6 +65,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void retrieveConnections(string email,System.Action<List<string>> callback)
     {
+        print(email);
         WWW www = new WWW("http://jimiverhoeven.nl:8080/connectionsByYou/"+email+"?user=DocterDesign");
         List<string> emails = new List<string>();
 
@@ -81,7 +82,7 @@ public class DatabaseManager : MonoBehaviour
             }
             else
             {
-                print("empty callback");
+                print(data.error);
                 callback(null);
             }
         }));
@@ -89,7 +90,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void retrieveByEmail(string email, System.Action<Person> callback)
     {
-        WWW www = new WWW("http://jimiverhoeven.nl:8080/users/"+email+"?user=DocterDesign");
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/users/" + email + "?user=DocterDesign");
 
         StartCoroutine(WaitForRequest(www, data =>
         {
@@ -101,6 +102,50 @@ public class DatabaseManager : MonoBehaviour
             else
             {
                 print("empty callback");
+                callback(null);
+            }
+        }));
+    }
+
+    public void RetrieveConnectedPersons(System.Action<List<Person>> callback)
+    {
+        List<Person> persons = new List<Person>();
+        retrieveConnections(Game.Get().User.Email, data =>
+        {
+            print(data);
+            int l = data.Count;
+            int i = 0;
+            foreach (String s in data)
+            {
+                retrieveByEmail(s, data2 =>
+                {
+                    i++;
+                    persons.Add(data2);
+                    if (i == l)
+                    {
+                        callback(persons);
+                    }
+                });
+            }
+        });
+    }
+
+    public void RetrieveImage(string email, System.Action<Texture2D> callback)
+    {
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/getImage/" + email + "?user=DocterDesign");
+        Debug.Log("http://jimiverhoeven.nl:8080/getImage/" + email + "?user=DocterDesign");
+        Texture2D txt = new Texture2D(1,1);
+        StartCoroutine(WaitForRequest(www, data =>
+        {
+            if (data.error == null)
+            {
+                data.LoadImageIntoTexture(txt);
+                
+                callback(txt);
+            }
+            else
+            {
+                print(data.error);
                 callback(null);
             }
         }));

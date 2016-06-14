@@ -34,6 +34,10 @@ public class HomeMenuScript : MonoBehaviour {
         MapSelector = new Vector3(0f, -80.8f, 0);
         AgendaSelector = new Vector3(150f, -80.8f, 0);
         Game.Get().userScanned += UserScanned;
+        DatabaseManager.Get().RetrieveConnectedPersons(data =>
+        {
+            Game.Get().SearchScript.CreatePeopleList(data);
+        });
     }
 
     void UserScanned(Person p)
@@ -45,7 +49,7 @@ public class HomeMenuScript : MonoBehaviour {
             foreach (string s in data)
             {
                 print(p.Email + " == " + s);
-                if (p.Email != s)
+                if (p.Email == s)
                 {
                     b = false;
                     break;

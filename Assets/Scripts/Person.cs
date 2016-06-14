@@ -17,6 +17,11 @@ public class Person
         p.CompanyName = n["CompanyName"];
         p.JobFunction = n["JobFunction"];
 //        p.Picture = n["Picture"]; convert dit naar sprite vanaf iets...
+//        DatabaseManager.Get().RetrieveImage(p.Email, data =>
+//        {
+//            Debug.Log("Ik heb image gevonden");
+//            p.Picture = Sprite.Create(data,new Rect(0,0,data.width,data.height),new Vector2(1,1) );
+//        });
         if (p.Picture == null)
         {
             p.Picture = Game.Get().StandardPerson;

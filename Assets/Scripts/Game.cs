@@ -11,11 +11,29 @@ public class Game : MonoBehaviour {
     public QRCodeDecodeController qrController;
     public Person User;
     public readonly bool DEBUG = false;
+    public DialogBox MainDialog;
+    public int BobState = 0;
     //public UnityEvent _userScanned;
     public delegate void UserScanned(Person p);
-    public event UserScanned userScanned;  
+    public event UserScanned userScanned;
+    public Sprite StandardPerson;
 
     private bool CameraShown = false;
+
+    public string GetBobState()
+    {
+        switch (BobState)
+        {
+            case 1:
+                return "Bob heeft een rolstoel gekregen.";
+            case 2:
+                return "Bob heeft krukken gekregen.";
+            case 3:
+                return "Gefeliciteerd! U heeft Bob genezen en kunt Bob verder helpen met een schat vinden.";
+            default:
+                return "";
+        }
+    }
 
     public static Game Get()
     {

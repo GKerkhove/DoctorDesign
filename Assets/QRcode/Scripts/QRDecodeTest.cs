@@ -113,7 +113,23 @@ public class QRDecodeTest : MonoBehaviour {
 		if (e_qrController != null) {
 			e_qrController.Reset();
 		}
-        e_qrController.StartCamera();
+	    if (e_qrController.e_DeviceController.isPlaying)
+	    {
+	        e_qrController.StopCamera();
+	        if (startBtn != null)
+	        {
+                startBtn.transform.Find("Button Text").gameObject.GetComponent<Text>().text = "Scan QR code";
+	        }
+	    }
+	    else
+        {
+            e_qrController.StartCamera();
+            if (startBtn != null)
+            {
+                print("yo");
+                startBtn.transform.Find("Button Text").gameObject.GetComponent<Text>().text = "Stop QR scannen";
+            }
+        }
 
 //		if (UiText != null) {
 //			UiText.text = "";	

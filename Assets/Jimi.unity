@@ -4171,7 +4171,15 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -5, y: -356}
+<<<<<<< HEAD
+<<<<<<< HEAD
+  m_SizeDelta: {x: 150.98224, y: 70.937}
+=======
+  m_SizeDelta: {x: 151.02702, y: 70.432434}
+>>>>>>> 224fd941edbe2878c8aa813e8fe75f7df22964d4
+=======
   m_SizeDelta: {x: 151.38942, y: 70.5156}
+>>>>>>> parent of b39d719... Update mijn scene
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782585671
 MonoBehaviour:
@@ -4645,7 +4653,15 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+  m_SizeDelta: {x: 156.21649, y: 65.70274}
+=======
+  m_SizeDelta: {x: 153.94595, y: 66.054054}
+>>>>>>> 224fd941edbe2878c8aa813e8fe75f7df22964d4
+=======
   m_SizeDelta: {x: 154.32022, y: 66.1194}
+>>>>>>> parent of b39d719... Update mijn scene
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &856250494
 GameObject:

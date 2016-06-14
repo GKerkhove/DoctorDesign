@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class HomeMenuScript : MonoBehaviour {
     private Vector3 StatusSelector;
     private Vector3 MapSelector;
     private Vector3 AgendaSelector;
+    public List<Sprite> Bobs;
+    public Image Bob;
 
     // Use this for initialization
     void Start () {
@@ -35,8 +38,36 @@ public class HomeMenuScript : MonoBehaviour {
 
     void UserScanned(Person p)
     {
-        print("waaaaa");
-        DatabaseManager.Get().CreateConnection(Game.Get().User.Email, p.Email, "");
+//        print(Game.Get().User.FirstName + " " + Game.Get().User.LastName);
+        DatabaseManager.Get().retrieveConnections(Game.Get().User.Email, data =>
+        {
+            bool b = true;
+            foreach (string s in data)
+            {
+                print(p.Email + " == " + s);
+                if (p.Email != s)
+                {
+                    b = false;
+                    break;
+                }
+            }
+            if (b)
+            {
+                Game.Get().BobState++;
+                DatabaseManager.Get().CreateConnection(Game.Get().User.Email, p.Email, "");
+                Game.Get()
+                    .MainDialog.Show("Connected!", p.FirstName + " " + p.LastName,
+                        "U bent succesvol verbonden.\n" + Game.Get().GetBobState(), p.Picture);
+                if (Game.Get().BobState <= 2)
+                {
+                    Bob.sprite = Bobs[Game.Get().BobState];
+                }
+            }
+            else
+            {
+                Game.Get().MainDialog.Show("Al Connected", "", "U bent al geconnect met " + p.FirstName + " " +p.LastName,null);
+            }
+        });
     }
 	
     void StatusClicked()

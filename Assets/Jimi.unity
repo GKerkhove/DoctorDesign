@@ -4171,7 +4171,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -5, y: -356}
-  m_SizeDelta: {x: 151.38942, y: 70.5156}
+  m_SizeDelta: {x: 130.57143, y: 67.14285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782585671
 MonoBehaviour:
@@ -4645,7 +4645,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 154.32022, y: 66.1194}
+  m_SizeDelta: {x: 147.7143, y: 58.571426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &856250494
 GameObject:
@@ -5767,12 +5767,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 992873153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1268b778a9624584fafd84ab7886f9fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8c2eb0e1326554d86f170b71c5db18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPhoto: {fileID: 423012339}
   takePhoto: {fileID: 1687121343}
-  profilePicture: {fileID: 1129866158}
+  profilePicture: {fileID: 0}
 --- !u!114 &992873156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8800,6 +8800,8 @@ MonoBehaviour:
   MapPanel: {fileID: 1178765311}
   AgendaPanel: {fileID: 538058443}
   Selector: {fileID: 735912591}
+  Bobs: []
+  Bob: {fileID: 0}
 --- !u!114 &1612669582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9699,7 +9701,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExitPanel: {fileID: 0}
   CurrentCanvas: {fileID: 785382412}
+  HomeCanvas: {fileID: 0}
   qrController: {fileID: 0}
+  User:
+    Email: 
+    FirstName: 
+    LastName: 
+    CompanyName: 
+    JobFunction: 
+    Picture: {fileID: 0}
+  MainDialog: {fileID: 0}
+  BobState: 0
+  StandardPerson: {fileID: 0}
 --- !u!4 &1839469545
 Transform:
   m_ObjectHideFlags: 0
@@ -10326,6 +10339,8 @@ MonoBehaviour:
   startBtn: {fileID: 875697792}
   startBtn2: {fileID: 277166411}
   scanLineObj: {fileID: 1646119252}
+  NextButtonLogin: {fileID: 0}
+  RetryQRButton: {fileID: 0}
 --- !u!114 &1935199977
 MonoBehaviour:
   m_ObjectHideFlags: 0

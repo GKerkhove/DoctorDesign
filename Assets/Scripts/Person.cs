@@ -1,11 +1,12 @@
 ﻿using System;
 using SimpleJSON;
+using UnityEngine;
 
 [Serializable]
 public class Person
 {
-    public string Email, Linkedin, YoutubeLink, FirstName, LastName, CompanyName, JobFunction;
-
+    public string Email, FirstName, LastName, CompanyName, JobFunction;
+    public Sprite Picture;
 
     public static Person GetFromJSON(JSONNode n)
     {
@@ -15,8 +16,11 @@ public class Person
         p.Email = n["Email"];
         p.CompanyName = n["CompanyName"];
         p.JobFunction = n["JobFunction"];
-        p.Linkedin = n["Linkedin"];
-        p.YoutubeLink = n["YoutubeLink"];
+//        p.Picture = n["Picture"]; convert dit naar sprite vanaf iets...
+        if (p.Picture == null)
+        {
+            p.Picture = Game.Get().StandardPerson;
+        }
         return p;
     }
 }

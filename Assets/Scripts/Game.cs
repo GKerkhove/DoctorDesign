@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Game : MonoBehaviour {
@@ -9,18 +10,49 @@ public class Game : MonoBehaviour {
     private static Game _instance;
     public QRCodeDecodeController qrController;
     public Person User;
-    public readonly bool DEBUG = true;
+    public readonly bool DEBUG = false;
+    public DialogBox MainDialog;
+    public int BobState = 0;
+    //public UnityEvent _userScanned;
+    public delegate void UserScanned(Person p);
+    public event UserScanned userScanned;
+    public Sprite StandardPerson;
 
     private bool CameraShown = false;
+
+    public string GetBobState()
+    {
+        switch (BobState)
+        {
+            case 1:
+                return "Bob heeft een rolstoel gekregen.";
+            case 2:
+                return "Bob heeft krukken gekregen.";
+            case 3:
+                return "Gefeliciteerd! U heeft Bob genezen en kunt Bob verder helpen met een schat vinden.";
+            default:
+                return "";
+        }
+    }
 
     public static Game Get()
     {
         return _instance;
     }
 
+    void Awake()
+    {
+        _instance = this;
+    }
+
 	// Use this for initialization
 	void Start ()
 	{
+
+        //if (_userScanned == null)
+        //    _userScanned = new UnityEvent();
+
+
         print(Application.persistentDataPath);
 	    if (CurrentUser.HasPerson())
 	    {
@@ -32,7 +64,6 @@ public class Game : MonoBehaviour {
 	            User = CurrentUser.GetPerson();
 	        }
 	    }
-	    _instance = this;
         DontDestroyOnLoad(gameObject);
         ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));
         GameObject go = GameObject.FindGameObjectWithTag("MainCanvas");
@@ -43,8 +74,9 @@ public class Game : MonoBehaviour {
         ExitPanel.transform.SetParent(go.transform);
         ExitPanel.transform.localPosition = new Vector3(0, 0, 0);
         ExitPanel.transform.localScale = new Vector3(1,1,1);
-        ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-        ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+        ExitPanel.transform.Find("Exit").Find("Button Layer").GetComponent<Button>().onClick.AddListener(ExitClick);
+        ExitPanel.transform.Find("Close").Find("Button Layer").GetComponent<Button>().onClick.AddListener(CloseClick);
+        //ExitPanel.SetActive(false);
 	}
 
     void ExitClick()
@@ -55,8 +87,14 @@ public class Game : MonoBehaviour {
     void CloseClick()
     {
         ExitPanel.SetActive(false);
-        qrController.StartCamera();
+        if(CameraShown)
+            qrController.StartCamera();
         CameraShown = false;
+    }
+
+    public void TriggerScanned(Person p)
+    {
+        userScanned(p);
     }
 	
 	// Update is called once per frame
@@ -69,11 +107,11 @@ public class Game : MonoBehaviour {
                 ExitPanel.transform.SetParent(gameObject.transform);
                 ExitPanel.transform.position = new Vector3(0, 0, 0);
                 ExitPanel.SetActive(true);
-                ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-                ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+                ExitPanel.transform.Find("Exit").Find("Button Layer").GetComponent<Button>().onClick.AddListener(ExitClick);
+                ExitPanel.transform.Find("Close").Find("Button Layer").GetComponent<Button>().onClick.AddListener(CloseClick);
             }
-            ExitPanel.transform.Find("Exit").GetComponent<Button>().onClick.AddListener(ExitClick);
-            ExitPanel.transform.Find("Close").GetComponent<Button>().onClick.AddListener(CloseClick);
+            ExitPanel.transform.Find("Exit").Find("Button Layer").GetComponent<Button>().onClick.AddListener(ExitClick);
+            ExitPanel.transform.Find("Close").Find("Button Layer").GetComponent<Button>().onClick.AddListener(CloseClick);
             ExitPanel.SetActive(!ExitPanel.activeSelf);
             if (qrController.e_DeviceController.cameraTexture.isPlaying)
             {

@@ -38,6 +38,7 @@ public class HomeMenuScript : MonoBehaviour {
         {
             Game.Get().SearchScript.CreatePeopleList(data);
         });
+        Bob.sprite = Bobs[Game.Get().BobState];
     }
 
     void UserScanned(Person p)
@@ -62,9 +63,10 @@ public class HomeMenuScript : MonoBehaviour {
                 Game.Get()
                     .MainDialog.Show("Connected!", p.FirstName + " " + p.LastName,
                         "U bent succesvol verbonden.\n" + Game.Get().GetBobState(), p.Picture);
-                if (Game.Get().BobState <= 2)
+                if (Game.Get().BobState <= 5)
                 {
                     Bob.sprite = Bobs[Game.Get().BobState];
+                    CurrentUser.SaveBobState(Game.Get().User);
                 }
             }
             else

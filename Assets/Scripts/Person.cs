@@ -7,6 +7,7 @@ public class Person
 {
     public string Email, FirstName, LastName, CompanyName, JobFunction;
     public Sprite Picture;
+    public int Bobstate; //This is only for the current user
 
     public static Person GetFromJSON(JSONNode n)
     {

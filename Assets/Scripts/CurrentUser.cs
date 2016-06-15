@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using UnityEngine;
 using SimpleJSON;
 
@@ -12,16 +13,32 @@ class CurrentUser
     {
         string json = JsonUtility.ToJson(p);
         JSONNode person = JSON.Parse(json);
-        Debug.Log(person["FirstName"]);
+        person.SaveToCompressedFile(Path);
+    }
+
+    public static void SaveBobState(Person p)
+    {
+        p.Bobstate = Game.Get().BobState;
+        string json = JsonUtility.ToJson(p);
+        JSONNode person = JSON.Parse(json);
         person.SaveToCompressedFile(Path);
     }
 
     public static Person GetPerson()
     {
+        Debug.Log(Path);
         try
         {
             JSONNode p = JSONNode.LoadFromCompressedFile(Path);
             Debug.Log(p["FirstName"] + " " + p["LastName"]);
+            if (p["Bobstate"] != null)
+            {
+                Game.Get().BobState = p["Bobstate"].AsInt;
+            }
+            else
+            {
+                Game.Get().BobState = 0;
+            }
             return Person.GetFromJSON(p);
         }
         catch (Exception e)

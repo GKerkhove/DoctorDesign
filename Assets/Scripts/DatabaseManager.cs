@@ -41,7 +41,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void retrieveAll(System.Action<List<Person>> callback)
     {
-        WWW www = new WWW("http://jimiverhoeven.nl:8080/users?user=DocterDesign");
+        WWW www = new WWW("http://37.97.179.201:8080/users?user=DocterDesign");
         List<Person> persons = new List<Person>();
 
         StartCoroutine(WaitForRequest(www, data =>
@@ -66,7 +66,7 @@ public class DatabaseManager : MonoBehaviour
     public void retrieveConnections(string email,System.Action<List<string>> callback)
     {
         print(email);
-        WWW www = new WWW("http://jimiverhoeven.nl:8080/connectionsByYou/"+email+"?user=DocterDesign");
+        WWW www = new WWW("http://37.97.179.201:8080/connectionsByYou/"+email+"?user=DocterDesign");
         List<string> emails = new List<string>();
 
         StartCoroutine(WaitForRequest(www, data =>
@@ -90,7 +90,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void retrieveByEmail(string email, System.Action<Person> callback)
     {
-        WWW www = new WWW("http://jimiverhoeven.nl:8080/users/" + email + "?user=DocterDesign");
+        WWW www = new WWW("http://37.97.179.201:8080/users/" + email + "?user=DocterDesign");
 
         StartCoroutine(WaitForRequest(www, data =>
         {
@@ -129,11 +129,12 @@ public class DatabaseManager : MonoBehaviour
             }
         });
     }
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction) values("Guido", "Kerkhove",)
+
 
     public void RetrieveImage(string email, System.Action<Texture2D> callback)
     {
-        WWW www = new WWW("http://jimiverhoeven.nl:8080/getImage/" + email + "?user=DocterDesign");
-        Debug.Log("http://jimiverhoeven.nl:8080/getImage/" + email + "?user=DocterDesign");
+        WWW www = new WWW("http://37.97.179.201:8080/getImage/" + email + "?user=DocterDesign");
         Texture2D txt = new Texture2D(1,1);
         StartCoroutine(WaitForRequest(www, data =>
         {
@@ -173,7 +174,7 @@ public class DatabaseManager : MonoBehaviour
     {
         Debug.Log("Started the IE");
 
-        WWW w = new WWW("http://jimiverhoeven.nl:8080/uploadImage?user=DocterDesign", form);
+        WWW w = new WWW("http://37.97.179.201:8080/uploadImage?user=DocterDesign", form);
         yield return w;
         callback(w);
     }
@@ -203,7 +204,7 @@ public class DatabaseManager : MonoBehaviour
     {
         Debug.Log("Started the IE");
 
-        WWW w = new WWW("http://jimiverhoeven.nl:8080/addConnection?user=DocterDesign", form);
+        WWW w = new WWW("http://37.97.179.201:8080/addConnection?user=DocterDesign", form);
         yield return w;
         callback(w);
     }

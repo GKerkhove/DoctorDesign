@@ -47,11 +47,11 @@ public class SearchPeople : MonoBehaviour {
                 list = input.text.Split(null);
             }
             if (list != null) {
-                url = "http://jimiverhoeven.nl:8080/search?user=DocterDesign&search=" + list;
+                url = "http://37.97.179.201:8080/search?user=DocterDesign&search=" + list;
             }
             else
             {
-                url = "http://jimiverhoeven.nl:8080/search?user=DocterDesign&search=" + input.text;
+                url = "http://37.97.179.201:8080/search?user=DocterDesign&search=" + input.text;
             }
             Debug.Log(url);
             if (url != null)

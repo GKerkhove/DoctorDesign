@@ -41,7 +41,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void retrieveAll(System.Action<List<Person>> callback)
     {
-        WWW www = new WWW("http://37.97.179.201:8080/users?user=DocterDesign");
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/users?user=DocterDesign");
         List<Person> persons = new List<Person>();
 
         StartCoroutine(WaitForRequest(www, data =>
@@ -66,7 +66,7 @@ public class DatabaseManager : MonoBehaviour
     public void retrieveConnections(string email,System.Action<List<string>> callback)
     {
         print(email);
-        WWW www = new WWW("http://37.97.179.201:8080/connectionsByYou/"+email+"?user=DocterDesign");
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/connectionsByYou/"+email+"?user=DocterDesign");
         List<string> emails = new List<string>();
 
         StartCoroutine(WaitForRequest(www, data =>
@@ -90,7 +90,7 @@ public class DatabaseManager : MonoBehaviour
 
     public void retrieveByEmail(string email, System.Action<Person> callback)
     {
-        WWW www = new WWW("http://37.97.179.201:8080/users/" + email + "?user=DocterDesign");
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/users/" + email + "?user=DocterDesign");
 
         StartCoroutine(WaitForRequest(www, data =>
         {
@@ -129,12 +129,21 @@ public class DatabaseManager : MonoBehaviour
             }
         });
     }
-//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction) values("Guido", "Kerkhove",)
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Guido", "Kerkhove","Kerkhove IT","guido.kerkhove@student.hu.nl","CEO",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Lars", "Botma","Whiskey for Breakfast","lars.botma@student.hu.nl","Gitarist",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Theo", "Florea","MaijLogic","theo.florea@student.hu.nl","Developer",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Peter", "Noordijk","Lame","peter.noordijk@student.hu.nl","Zoeken",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Mark", "van der Horst","DEVENTit","mark.vanderhorst@student.hu.nl","Support 2e lijns",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Jimi", "Verhoeven","Een bedrijf","jimi.verhoeven@student.hu.nl","Werekuh",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Nick", "Rutgers","Zebs","nick.rutgers@student.hu.nl","Keuken Hulp",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Thea", "Floreo","Developer","Floreo.theo@hu.student.nl","MaijLogic",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Gerald", "Ovink","Kaer Morhen","gerald.ovink@hu.nl","Witcher",0,0);
+//     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Sir Geralt", "of Rivia","Hogeschool Utrecht","Thewitcher@CDprojectRed.red","Leraar",0,0);
 
 
     public void RetrieveImage(string email, System.Action<Texture2D> callback)
     {
-        WWW www = new WWW("http://37.97.179.201:8080/getImage/" + email + "?user=DocterDesign");
+        WWW www = new WWW("http://jimiverhoeven.nl:8080/getImage/" + email + "?user=DocterDesign");
         Texture2D txt = new Texture2D(1,1);
         StartCoroutine(WaitForRequest(www, data =>
         {
@@ -157,6 +166,7 @@ public class DatabaseManager : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddBinaryData("avatar", snap.EncodeToJPG());
 		form.AddField ("email", email);
+        Debug.Log("In image uploaden");
         StartCoroutine(UploadPNG(snap, form, data =>
         {
             if (data.error == null)
@@ -174,7 +184,7 @@ public class DatabaseManager : MonoBehaviour
     {
         Debug.Log("Started the IE");
 
-        WWW w = new WWW("http://37.97.179.201:8080/uploadImage?user=DocterDesign", form);
+        WWW w = new WWW("http://jimiverhoeven.nl:8080/uploadImage?user=DocterDesign", form);
         yield return w;
         callback(w);
     }
@@ -184,7 +194,7 @@ public class DatabaseManager : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("from", email1);
         form.AddField("to", email2);
-        form.AddField("time", DateTime.Now.ToString("h:mm:ss tt"));
+        form.AddField("time", DateTime.Now.ToString("hh:mm:ss"));
         form.AddField("notities", notes);
         StartCoroutine(MakeConnection(form, data =>
         {
@@ -204,7 +214,7 @@ public class DatabaseManager : MonoBehaviour
     {
         Debug.Log("Started the IE");
 
-        WWW w = new WWW("http://37.97.179.201:8080/addConnection?user=DocterDesign", form);
+        WWW w = new WWW("http://jimiverhoeven.nl:8080/addConnection?user=DocterDesign", form);
         yield return w;
         callback(w);
     }

@@ -22,6 +22,12 @@ public class SearchPeople : MonoBehaviour {
         go.transform.localScale = new Vector3(1, 1, 1);
         go.transform.localPosition = new Vector3(go.transform.localPosition.x,
         go.transform.localPosition.y, 1);
+        DatabaseManager.Get().RetrieveImage(p.Email, data =>
+        {
+            Debug.Log("Ik heb image gevonden");
+            p.Picture = Sprite.Create(data, new Rect(0, 0, data.width, data.height), new Vector2(1, 1));
+            go.transform.Find("Avatar").GetComponent<Image>().sprite = p.Picture;
+        });
         go.GetComponent<Button>().onClick.AddListener(() => ShowPersonDetails(p));
         return go;
     }
@@ -29,10 +35,11 @@ public class SearchPeople : MonoBehaviour {
     void ShowPersonDetails(Person p)
     {
         print(p);
-        Game.Get().MainDialog.ShowLarge(p.FirstName + " " + p.LastName,p.Email + "\n" + p.JobFunction + "\n"+p.CompanyName, "notes...", p.Picture);
+        Game.Get().MainDialog.ShowLarge(p.FirstName + " " + p.LastName,p.Email + "\n" + p.JobFunction + "\n"+p.CompanyName, "notes...", p.Picture,true);
     }
     void LockInput(InputField input)
     {
+        string items = null;
         print("test");
         foreach (Transform child in ToAddTo.transform)
         {
@@ -45,33 +52,36 @@ public class SearchPeople : MonoBehaviour {
             if(input.text.Contains(" "))
             {
                 list = input.text.Split(null);
+
+                items = string.Join(",", list);
+                print(items);
             }
-            if (list != null) {
-                url = "http://37.97.179.201:8080/search?user=DocterDesign&search=" + list;
+            if (items != null) {
+                url = "http://jimiverhoeven.nl:8080/search?user=DocterDesign&search=" + items;
             }
             else
             {
-                url = "http://37.97.179.201:8080/search?user=DocterDesign&search=" + input.text;
+                url = "http://jimiverhoeven.nl:8080/search?user=DocterDesign&search=" + input.text;
             }
             Debug.Log(url);
             if (url != null)
             {
                 DatabaseManager.Get().SearchUser(url, (data) =>
                 {
-                    DatabaseManager.Get().RetrieveConnectedPersons(data2 =>
-                    {
+//                    DatabaseManager.Get().RetrieveConnectedPersons(data2 =>
+//                    {
                         foreach (Person p in data)
                         {
                             GameObject go = CreateListItem(p);
-                            foreach(Person p2 in data2){
-                                if (p2.Email == p.Email)
-                                {
-                                    go.transform.Find("Icon").gameObject.SetActive(true);
-                                    break;
-                                }
-                            }
+//                            foreach(Person p2 in data2){
+//                                if (p2.Email == p.Email)
+//                                {
+//                                    go.transform.Find("Icon").gameObject.SetActive(true);
+//                                    break;
+//                                }
+//                            }
                         }
-                    });
+//                    });
                 });
             }
         }

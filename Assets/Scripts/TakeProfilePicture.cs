@@ -42,7 +42,7 @@ public class TakeProfilePicture : MonoBehaviour {
     void FirstClick()
     {
         Game.Get().qrController.StartCamera(true);
-        Game.Get().qrController.transform.rotation = new Quaternion(Game.Get().qrController.transform.rotation.x, Game.Get().qrController.transform.rotation.y, Game.Get().qrController.transform.rotation.z+180,0);
+        Game.Get().qrController.transform.rotation = new Quaternion(Game.Get().qrController.transform.rotation.x, Game.Get().qrController.transform.rotation.y, Game.Get().qrController.transform.rotation.z+90,0);
         takePhoto.gameObject.SetActive(true);
     }
 }

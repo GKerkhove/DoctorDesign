@@ -131,6 +131,10 @@ public class DatabaseManager : MonoBehaviour
                     });
                 }
             }
+            else
+            {
+                callback(persons);
+            }
         });
     }
 //     insert into users (FirstName,LastName,CompanyName,Email,JobFunction,email_openbaar,telefoonnummer_openbaar) values("Guido", "Kerkhove","Kerkhove IT","guido.kerkhove@student.hu.nl","CEO",0,0);

@@ -16,8 +16,8 @@ using System.IO;
 public class QRCodeDecodeController : MonoBehaviour
 {
 	public delegate void QRScanFinished(string str);  
-	public event QRScanFinished e_QRScanFinished;  
-
+	public event QRScanFinished e_QRScanFinished;
+    private bool isFront = false;
 	bool decoding = false;
 	bool tempDecodeing = false;
 	string dataText = null;
@@ -51,23 +51,27 @@ public class QRCodeDecodeController : MonoBehaviour
     public void StartCamera()
     {
         print("START");
+        e_DeviceController.cameraTexture = new WebCamTexture();
         e_DeviceController.cameraTexture.Play();
         e_DeviceController.isPlaying = true;
         e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);
+        isFront = false;
     }
     public void StartCamera(bool b)
     {
         print("START");
-        if (b)
-        {
             foreach (WebCamDevice wcd in WebCamTexture.devices)
             {
-                if (wcd.isFrontFacing)
+                if (wcd.isFrontFacing == b)
                 {
                     e_DeviceController.cameraTexture = new WebCamTexture(wcd.name);
+                    if (b)
+                    {
+                        isFront = true;
+                    }
+                    break;
                 }
             }
-        }
         e_DeviceController.cameraTexture.Play();
         e_DeviceController.isPlaying = true;
         e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);

@@ -25,13 +25,14 @@ public class TakeProfilePicture : MonoBehaviour {
         snap.Apply();
         if (snap != null)
         {
-			string email = /*Game.Get().User.Email*/ "jimi.verhoeven@gmail.com";
+			string email = Game.Get().User.Email;
             Debug.Log(snap);
             DatabaseManager.Get().uploadImage(snap, email);
         }
         takePhoto.gameObject.SetActive(false);
         Game.Get().qrController.StopCamera();
         profilePicture.gameObject.SetActive(true);
+        print(snap);
         profilePicture.sprite = Sprite.Create(snap, new Rect(0, 0, snap.width, snap.height), new Vector2(0.5f, 0.5f));
 
 
@@ -40,7 +41,8 @@ public class TakeProfilePicture : MonoBehaviour {
 
     void FirstClick()
     {
-        Game.Get().qrController.StartCamera();
+        Game.Get().qrController.StartCamera(true);
+        Game.Get().qrController.transform.rotation = new Quaternion(Game.Get().qrController.transform.rotation.x, Game.Get().qrController.transform.rotation.y, Game.Get().qrController.transform.rotation.z+180,0);
         takePhoto.gameObject.SetActive(true);
     }
 }

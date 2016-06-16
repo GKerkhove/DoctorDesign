@@ -66,22 +66,24 @@ public class SearchPeople : MonoBehaviour {
             Debug.Log(url);
             if (url != null)
             {
+                print("NOT NULL");
                 DatabaseManager.Get().SearchUser(url, (data) =>
                 {
-//                    DatabaseManager.Get().RetrieveConnectedPersons(data2 =>
-//                    {
+                    DatabaseManager.Get().RetrieveConnectedPersons(data2 =>
+                    {
                         foreach (Person p in data)
                         {
-                            GameObject go = CreateListItem(p);
-//                            foreach(Person p2 in data2){
-//                                if (p2.Email == p.Email)
-//                                {
-//                                    go.transform.Find("Icon").gameObject.SetActive(true);
-//                                    break;
-//                                }
-//                            }
+                            print(p.FirstName + "  found");
+                            GameObject   go = CreateListItem(p);
+                            foreach(Person p2 in data2){
+                                if (p2.Email == p.Email)
+                                {
+                                    go.transform.Find("Icon").gameObject.SetActive(true);
+                                    break;
+                                }
+                            }
                         }
-//                    });
+                    });
                 });
             }
         }

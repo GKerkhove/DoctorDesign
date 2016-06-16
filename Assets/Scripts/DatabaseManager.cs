@@ -30,6 +30,7 @@ public class DatabaseManager : MonoBehaviour
             {
                 //string[] text = data.text.Split(new [] {",ProfileImage"}, StringSplitOptions.None);
                 JSONNode n = JSON.Parse(data.text);
+                print(data.text);
                 for (int i = 0; i < n.Count; i++)
                 {
                     persons.Add(Person.GetFromJSON(n[i]));
@@ -113,19 +114,22 @@ public class DatabaseManager : MonoBehaviour
         retrieveConnections(Game.Get().User.Email, data =>
         {
             print(data);
-            int l = data.Count;
-            int i = 0;
-            foreach (String s in data)
+            if (data != null)
             {
-                retrieveByEmail(s, data2 =>
+                int l = data.Count;
+                int i = 0;
+                foreach (String s in data)
                 {
-                    i++;
-                    persons.Add(data2);
-                    if (i == l)
+                    retrieveByEmail(s, data2 =>
                     {
-                        callback(persons);
-                    }
-                });
+                        i++;
+                        persons.Add(data2);
+                        if (i == l)
+                        {
+                            callback(persons);
+                        }
+                    });
+                }
             }
         });
     }

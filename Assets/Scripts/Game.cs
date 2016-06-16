@@ -45,7 +45,7 @@ public class Game : MonoBehaviour {
     void Awake()
     {
         print("DELETING");
-//        File.Delete(CurrentUser.Path);
+        File.Delete(CurrentUser.Path);
         _instance = this;
         if (CurrentUser.HasPerson())
         {
@@ -99,6 +99,7 @@ public class Game : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ExitPanel.transform.SetParent(CurrentCanvas.transform);
             if (ExitPanel == null)
             {
                 ExitPanel = Instantiate(Resources.Load<GameObject>("Prefabs/Exit Panel"));

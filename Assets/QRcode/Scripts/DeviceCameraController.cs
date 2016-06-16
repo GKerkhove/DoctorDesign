@@ -2,6 +2,7 @@
 /// write by 52cwalk,if you have some question ,please contract lycwalk@gmail.com
 /// </summary>
 
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -68,6 +69,7 @@ public class DeviceCameraController : MonoBehaviour {
 			#elif UNITY_ANDROID
 			cameraTexture = new WebCamTexture();  
 			#endif
+		    
 //			cameraTexture.Play();
 //			isPlay = true;  
 		}  

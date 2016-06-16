@@ -54,7 +54,23 @@ public class QRCodeDecodeController : MonoBehaviour
         e_DeviceController.cameraTexture.Play();
         e_DeviceController.isPlaying = true;
         e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);
-
+    }
+    public void StartCamera(bool b)
+    {
+        print("START");
+        if (b)
+        {
+            foreach (WebCamDevice wcd in WebCamTexture.devices)
+            {
+                if (wcd.isFrontFacing)
+                {
+                    e_DeviceController.cameraTexture = new WebCamTexture(wcd.name);
+                }
+            }
+        }
+        e_DeviceController.cameraTexture.Play();
+        e_DeviceController.isPlaying = true;
+        e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);
         
     }
 

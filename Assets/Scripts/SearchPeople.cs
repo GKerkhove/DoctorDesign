@@ -12,24 +12,42 @@ public class SearchPeople : MonoBehaviour {
     private List<string> NameList = new List<string>();
     public GameObject ToAddTo;
 
-    private GameObject CreateListItem(Person p)
+    private GameObject CreateListItem(Person p, bool check)
     {
-        GameObject go = Instantiate(Button_Template) as GameObject;
-        go.SetActive(true);
-        Tutorial_Button TB = go.GetComponent<Tutorial_Button>();
-        TB.SetName(p.FirstName + " " + p.LastName);
-        go.transform.SetParent(ToAddTo.transform);
-        go.transform.localScale = new Vector3(1, 1, 1);
-        go.transform.localPosition = new Vector3(go.transform.localPosition.x,
-        go.transform.localPosition.y, 1);
+        
         DatabaseManager.Get().RetrieveImage(p.Email, data =>
         {
+            GameObject go = Instantiate(Button_Template) as GameObject;
+            go.SetActive(true);
+            Tutorial_Button TB = go.GetComponent<Tutorial_Button>();
+            TB.SetName(p.FirstName + " " + p.LastName);
+            go.transform.SetParent(ToAddTo.transform);
+            go.transform.localScale = new Vector3(1, 1, 1);
+            go.transform.localPosition = new Vector3(go.transform.localPosition.x,
+            go.transform.localPosition.y, 1);
+            print("pietje puk");
             Debug.Log("Ik heb image gevonden");
-            p.Picture = Sprite.Create(data, new Rect(0, 0, data.width, data.height), new Vector2(1, 1));
+            print(data);
+
+            if (data != null)
+            {
+                p.Picture = Sprite.Create(data, new Rect(0, 0, data.width, data.height), new Vector2(1, 1));
+                p.Picture.name = p.Email + ".jpg";
+            }
+            else
+            {
+                p.Picture = Game.Get().StandardPerson;
+            }
             go.transform.Find("Avatar").GetComponent<Image>().sprite = p.Picture;
+            go.transform.Find("Avatar").GetComponent<Image>().color = new Color(255,255,255,255);
+            if (check)
+            {
+                go.transform.Find("Icon").gameObject.SetActive(true);
+            }
+            go.GetComponent<Button>().onClick.AddListener(() => ShowPersonDetails(p));
+
         });
-        go.GetComponent<Button>().onClick.AddListener(() => ShowPersonDetails(p));
-        return go;
+        return null;
     }
 
     void ShowPersonDetails(Person p)
@@ -71,17 +89,18 @@ public class SearchPeople : MonoBehaviour {
                 {
                     DatabaseManager.Get().RetrieveConnectedPersons(data2 =>
                     {
+                        print("waarom");
                         foreach (Person p in data)
                         {
-                            print(p.FirstName + "  found");
-                            GameObject   go = CreateListItem(p);
+                            bool v = false;
                             foreach(Person p2 in data2){
                                 if (p2.Email == p.Email)
                                 {
-                                    go.transform.Find("Icon").gameObject.SetActive(true);
+                                    v = true;
                                     break;
                                 }
                             }
+                            GameObject go = CreateListItem(p, v);
                         }
                     });
                 });
@@ -103,8 +122,7 @@ public class SearchPeople : MonoBehaviour {
         foreach (Person p in people)
         {
 
-            GameObject go = CreateListItem(p);
-            go.transform.Find("Icon").gameObject.SetActive(true);
+            GameObject go = CreateListItem(p, true);
         }
     }
 

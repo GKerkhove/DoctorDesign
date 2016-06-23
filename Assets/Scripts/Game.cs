@@ -45,7 +45,7 @@ public class Game : MonoBehaviour {
     void Awake()
     {
         print("DELETING");
-        File.Delete(CurrentUser.Path);
+//        File.Delete(CurrentUser.Path);
         _instance = this;
         if (CurrentUser.HasPerson())
         {

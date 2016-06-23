@@ -111,10 +111,11 @@ public class DatabaseManager : MonoBehaviour
     public void RetrieveConnectedPersons(System.Action<List<Person>> callback)
     {
         List<Person> persons = new List<Person>();
+        print("IN RETRIEVE");
         retrieveConnections(Game.Get().User.Email, data =>
         {
             print(data);
-            if (data != null)
+            if (data == null)
             {
                 int l = data.Count;
                 int i = 0;
@@ -122,12 +123,13 @@ public class DatabaseManager : MonoBehaviour
                 {
                     retrieveByEmail(s, data2 =>
                     {
-                        i++;
-                        persons.Add(data2);
+                        print(i+" == " + l);
                         if (i == l)
                         {
                             callback(persons);
                         }
+                        i++;
+                        persons.Add(data2);
                     });
                 }
             }
@@ -151,12 +153,15 @@ public class DatabaseManager : MonoBehaviour
 
     public void RetrieveImage(string email, System.Action<Texture2D> callback)
     {
+        print("WOLLA WILLEM");
         WWW www = new WWW("http://jimiverhoeven.nl:8080/getImage/" + email + "?user=DocterDesign");
         Texture2D txt = new Texture2D(1,1);
         StartCoroutine(WaitForRequest(www, data =>
         {
-            if (data.error == null)
+print(data.texture);
+            if (data != null && data.error == null)
             {
+
                 data.LoadImageIntoTexture(txt);
                 
                 callback(txt);
@@ -174,7 +179,6 @@ public class DatabaseManager : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddBinaryData("avatar", snap.EncodeToJPG());
 		form.AddField ("email", email);
-        Debug.Log("In image uploaden");
         StartCoroutine(UploadPNG(snap, form, data =>
         {
             if (data.error == null)
@@ -190,7 +194,6 @@ public class DatabaseManager : MonoBehaviour
     }
     IEnumerator UploadPNG(Texture2D snap, WWWForm form, System.Action<WWW> callback)
     {
-        Debug.Log("Started the IE");
 
         WWW w = new WWW("http://jimiverhoeven.nl:8080/uploadImage?user=DocterDesign", form);
         yield return w;
@@ -235,6 +238,7 @@ public class DatabaseManager : MonoBehaviour
         if (www.error == null)
         {
             Debug.Log("WWW Ok!: ");
+            Debug.Log(www.texture);
             yield return null;
             callback(www);
         }

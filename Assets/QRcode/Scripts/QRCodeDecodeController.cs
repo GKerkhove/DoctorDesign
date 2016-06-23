@@ -64,16 +64,17 @@ public class QRCodeDecodeController : MonoBehaviour
                     if (b)
                     {
                         isFront = true;
-                        e_DeviceController.e_CameraPlaneObj.transform.localScale = new Vector3(1, -1, 0);
+                        e_DeviceController.e_CameraPlaneObj.transform.localScale = new Vector3(0, -1, 0);
                     }
                     else
                     {
-                        e_DeviceController.e_CameraPlaneObj.transform.localScale = new Vector3(1, 1, 0);
+                        e_DeviceController.e_CameraPlaneObj.transform.localScale = new Vector3(0, 1, 0);
                     }
                     break;
                 }
             }
-        Debug.Log(e_DeviceController.e_CameraPlaneObj.transform.localEulerAngles);
+            Debug.Log(e_DeviceController.e_CameraPlaneObj.transform.localEulerAngles);
+            Debug.Log(e_DeviceController.transform.localScale);
         e_DeviceController.cameraTexture.Play();
         e_DeviceController.isPlaying = true;
         e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);

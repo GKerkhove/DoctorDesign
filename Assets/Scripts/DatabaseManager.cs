@@ -115,7 +115,7 @@ public class DatabaseManager : MonoBehaviour
         retrieveConnections(Game.Get().User.Email, data =>
         {
             print(data);
-            if (data == null)
+            if (data != null)
             {
                 int l = data.Count;
                 int i = 0;
@@ -124,12 +124,15 @@ public class DatabaseManager : MonoBehaviour
                     retrieveByEmail(s, data2 =>
                     {
                         print(i+" == " + l);
-                        if (i == l)
-                        {
-                            callback(persons);
-                        }
+
                         i++;
                         persons.Add(data2);
+                        if (i == l)
+                        {
+                            print("CALLING BACK" + persons.Count);
+                            callback(persons);
+                        }
+                        
                     });
                 }
             }
@@ -158,7 +161,7 @@ public class DatabaseManager : MonoBehaviour
         Texture2D txt = new Texture2D(1,1);
         StartCoroutine(WaitForRequest(www, data =>
         {
-print(data.texture);
+print(data.texture );
             if (data != null && data.error == null)
             {
 

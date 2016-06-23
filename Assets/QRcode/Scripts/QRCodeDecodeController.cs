@@ -50,12 +50,8 @@ public class QRCodeDecodeController : MonoBehaviour
 
     public void StartCamera()
     {
-        print("START");
-        e_DeviceController.cameraTexture = new WebCamTexture();
-        e_DeviceController.cameraTexture.Play();
-        e_DeviceController.isPlaying = true;
-        e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);
-        isFront = false;
+        StartCamera(false);
+
     }
     public void StartCamera(bool b)
     {
@@ -68,10 +64,16 @@ public class QRCodeDecodeController : MonoBehaviour
                     if (b)
                     {
                         isFront = true;
+                        e_DeviceController.e_CameraPlaneObj.transform.localScale = new Vector3(1, -1, 0);
+                    }
+                    else
+                    {
+                        e_DeviceController.e_CameraPlaneObj.transform.localScale = new Vector3(1, 1, 0);
                     }
                     break;
                 }
             }
+        Debug.Log(e_DeviceController.e_CameraPlaneObj.transform.localEulerAngles);
         e_DeviceController.cameraTexture.Play();
         e_DeviceController.isPlaying = true;
         e_DeviceController.gameObject.transform.Find("CameraPlane").gameObject.SetActive(true);
